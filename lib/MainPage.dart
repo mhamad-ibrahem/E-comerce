@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'Constant/Colors.dart';
+import 'Core/Constant/Colors.dart';
 import 'controller/HomePageController.dart';
 
 class MainPage extends StatelessWidget {

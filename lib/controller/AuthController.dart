@@ -1,11 +1,9 @@
-import 'package:ecommerce/view/Home/HomePage.dart';
-import 'package:ecommerce/view/auth/CompleteProfile.dart';
-import 'package:ecommerce/view/auth/LoginSuccess.dart';
-import 'package:ecommerce/view/auth/OTPVerification.dart';
-import 'package:ecommerce/view/auth/SignIn.dart';
+
+import 'package:ecommerce/view/Screens/auth/CompleteProfile.dart';
+import 'package:ecommerce/view/Screens/auth/LoginSuccess.dart';
+import 'package:ecommerce/view/Screens/auth/OTPVerification.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../MainPage.dart';
 
 class AuthController extends GetxController {
@@ -18,7 +16,7 @@ class AuthController extends GetxController {
   void signInvalidate() {
     var formData = signinState.currentState;
     if (formData!.validate()) {
-      Get.to(() => LoginSuccess());
+      Get.to(() => const LoginSuccess());
     }
   }
 

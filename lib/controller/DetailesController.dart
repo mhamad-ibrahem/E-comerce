@@ -1,8 +1,8 @@
-import 'package:ecommerce/model/Poducts.dart';
+import 'package:ecommerce/data/model/Poducts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../Constant/Colors.dart';
+import '../Core/Constant/Colors.dart';
 
 class DetailesController extends GetxController {
   //Products List

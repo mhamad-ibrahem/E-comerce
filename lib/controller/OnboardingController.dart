@@ -1,8 +1,7 @@
-import 'package:ecommerce/view/auth/SignIn.dart';
+import 'package:ecommerce/view/Screens/auth/SignIn.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../view/auth/SignUp.dart';
 
 class OnBoardingController extends GetxController {
   PageController imagesPageController = PageController();

@@ -1,10 +1,10 @@
-import 'package:ecommerce/model/Poducts.dart';
-import 'package:ecommerce/view/Chat/Chat.dart';
-import 'package:ecommerce/view/Detailes/Detailes.dart';
-import 'package:ecommerce/view/Favourite/Favourite.dart';
+import 'package:ecommerce/data/model/Poducts.dart';
+import 'package:ecommerce/view/Screens/Chat/Chat.dart';
+import 'package:ecommerce/view/Screens/Detailes/Detailes.dart';
+import 'package:ecommerce/view/Screens/Favourite/Favourite.dart';
 
-import 'package:ecommerce/view/Home/HomePage.dart';
-import 'package:ecommerce/view/Profile/Profile.dart';
+import 'package:ecommerce/view/Screens/Home/HomePage.dart';
+import 'package:ecommerce/view/Screens/Profile/Profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -12,9 +12,9 @@ class HomePageController extends GetxController {
   int currentindex = 0;
   List<Widget> bottomPages = [
     HomePage(),
-    FavouritePage(),
-    ChatPage(),
-    ProfilePage()
+    const FavouritePage(),
+    const ChatPage(),
+    const ProfilePage()
   ];
   changePage(int value) {
     currentindex = value;
