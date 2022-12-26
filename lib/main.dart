@@ -1,9 +1,14 @@
-import 'package:ecommerce/model/Themes.dart';
-import 'package:ecommerce/view/OnBoarding/onBoardingPage.dart';
+import 'package:ecommerce/Core/Binding/Bindings.dart';
+import 'package:ecommerce/Core/Constant/routes.dart';
+import 'package:ecommerce/Core/Theme/Themes.dart';
+import 'package:ecommerce/Core/services/Services.dart';
+import 'package:ecommerce/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initialServices();
   runApp(const Ecommerce());
 }
 
@@ -14,9 +19,11 @@ class Ecommerce extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: Themes().currentTheme,
-      initialRoute: 'onBoarding',
-      routes: {'onBoarding': (p0) => OnBorading()},
+      theme: Themes.lightsTheme,
+      initialRoute: AppRoute.onBording,
+      // home:const TestView(),
+      getPages: routes,
+      initialBinding: MyBindings(),
     );
   }
 }

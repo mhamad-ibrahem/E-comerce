@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../Core/Theme/Themes.dart';
 
@@ -23,19 +22,19 @@ class ProfileItem extends StatelessWidget {
           child: Card(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            color: mostLightGrey,
+            color:AppColor. mostLightGrey,
             child: ListTile(
               leading: Icon(
                 icon,
-                color: orange,
+                color:AppColor. orange,
               ),
               title: Text(
                 title,
-                style: Themes().currentTheme.textTheme.headline1,
+                style: Theme.of(context).textTheme.headline1,
               ),
-              trailing: Icon(
+              trailing:const Icon(
                 Icons.arrow_forward_ios,
-                color: grey,
+                color:AppColor. grey,
               ),
             ),
           ),

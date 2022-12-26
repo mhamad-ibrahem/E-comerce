@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../../../../Core/Constant/Colors.dart';
+import '../../../../Core/Constant/ScreenSize.dart';
 import '../../../../controller/DetailesController.dart';
-
-import '../../../../data/model/functions.dart';
+import '../../../../Core/Constant/fonts.dart';
 import '../../../Widget/CustomButton.dart';
 import '../DetailesCustoms/ColorsAndQuntity.dart';
 import '../DetailesCustoms/DescriptionText.dart';
@@ -22,16 +21,16 @@ class BottomColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height / 1.8,
-      color: lightGrey,
+      height:AppSize.screenHight / 1.8,
+      color: AppColor.lightGrey,
       child: Container(
         padding: const EdgeInsets.only(top: 20),
-        decoration: BoxDecoration(
-            borderRadius: const BorderRadius.only(
+        decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15),
               topRight: Radius.circular(15),
             ),
-            color: white),
+            color: AppColor.white),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -49,10 +48,11 @@ class BottomColumn extends StatelessWidget {
               height: 40,
             ),
             CustomButton(
-                onTap: () {},
-                buttonBody: 'Add to Chart',
-                buttonradius: 20,
-                containerWidth: MediaQuery.of(context).size.width / 1.5),
+              onTap: () {},
+              buttonBody: 'Add to Chart',
+              leftPadding: AppSize.screenWidth* 0.3,
+              rightPadding: AppSize.screenWidth* 0.3,
+            ),
           ],
         ),
       ),

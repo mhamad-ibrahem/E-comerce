@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../Core/Constant/Colors.dart';
-import '../../../../Core/Theme/Themes.dart';
+import '../../../../Core/Constant/ScreenSize.dart';
 
 class CartTextFieldRow extends StatelessWidget {
   const CartTextFieldRow({
@@ -13,22 +13,22 @@ class CartTextFieldRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Icon(
+        const Icon(
           Icons.receipt,
-          color: orange,
+          color:AppColor. orange,
         ),
         Container(
           height: 40,
-          width: MediaQuery.of(context).size.width / 1.8,
+          width:AppSize.screenWidth / 1.8,
           decoration: BoxDecoration(
-              color: lightGrey, borderRadius: BorderRadius.circular(10)),
+              color: AppColor.lightGrey, borderRadius: BorderRadius.circular(10)),
           child: TextField(
             decoration: InputDecoration(
               hintText: '   Add voucher code',
-              hintStyle: Themes().currentTheme.textTheme.headline6,
-              suffixIcon: Icon(
+              hintStyle: Theme.of(context).textTheme.headline6,
+              suffixIcon: const Icon(
                 Icons.arrow_forward,
-                color: deepGrey,
+                color: AppColor.deepGrey,
               ),
               border: InputBorder.none,
             ),

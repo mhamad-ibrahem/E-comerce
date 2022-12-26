@@ -1,19 +1,22 @@
 import 'package:ecommerce/Core/Constant/Colors.dart';
-import 'package:ecommerce/controller/OnboardingController.dart';
-import 'package:ecommerce/view/Screens/OnBoarding/OnBoardingCustoms/DotsIndicator.dart';
-import 'package:ecommerce/view/Screens/OnBoarding/OnBoardingCustoms/OnBoradingPageViewImages.dart';
+import 'package:ecommerce/Core/Constant/ScreenSize.dart';
+import 'package:ecommerce/controller/Auth/SignIn/SignInController.dart';
+import 'package:ecommerce/controller/onBording/OnboardingController.dart';
+import 'package:ecommerce/data/DataSource/static/staticOnBording.dart';
+import 'package:ecommerce/view/Screens/OnBoarding/OnBoardingCustoms/onBordingBody.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../Widget/CustomButton.dart';
-import 'OnBoardingCustoms/OnBoradingPageViewText.dart';
+import 'OnBoardingCustoms/DotsIndicator.dart';
 
-class OnBorading extends StatelessWidget {
-  OnBorading({Key? key}) : super(key: key);
-  final OnBoardingController _controller = Get.put(OnBoardingController());
+class OnBording extends GetView<OnBordingImplement> {
+  OnBording({Key? key}) : super(key: key);
+
+  final OnBordingImplement _controller = Get.put(OnBordingImplement());
 
   @override
   Widget build(BuildContext context) {
-    _controller.getHieghtWidth(context);
+    Get.put(SignInImplement());
     return SafeArea(
       child: Scaffold(
         body: Center(
@@ -21,36 +24,33 @@ class OnBorading extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Column(
-                children: [
-                  Text(
-                    'StoreX',
-                    style: TextStyle(
-                        color: orange,
-                        fontSize: 40,
-                        fontFamily: 'muli',
-                        fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  OnBoradingPageViewText(controller: _controller),
-                ],
+             const Text(
+                'JO Store',
+                style:TextStyle(
+                    color:AppColor. orange,
+                    fontSize: 35,
+                    fontFamily: 'muli',
+                    fontWeight: FontWeight.bold),
               ),
-              Column(
-                children: [
-                  OnBoradingPageViewImages(controller: _controller),
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  DotsIndicator(controller: _controller)
-                ],
+              SizedBox(
+                height: AppSize.screenHight * 0.45,
+                child: PageView.builder(
+                  onPageChanged: (index) {
+                    _controller.onPageChanged(index);
+                  },
+                  controller: _controller.pageController,
+                  itemCount: onBoardingList.length,
+                  itemBuilder: (context, index) => OnBordingBody(
+                      title: onBoardingList[index].subtitle!,
+                      image: onBoardingList[index].image),
+                ),
               ),
+              const DotsIndicator(),
               CustomButton(
-                onTap: () => _controller.nextPage(),
+                onTap: _controller.moveToNextPage,
                 buttonBody: 'Continue',
-                buttonradius: 25,
-                containerWidth: 300,
+                leftPadding: AppSize.screenWidth * 0.34,
+                rightPadding: AppSize.screenWidth * 0.34,
               )
             ],
           ),

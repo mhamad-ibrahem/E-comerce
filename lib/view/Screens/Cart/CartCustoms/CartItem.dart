@@ -1,8 +1,7 @@
+import 'package:ecommerce/Core/Constant/ScreenSize.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../Core/Constant/Colors.dart';
-import '../../../../Core/Theme/Themes.dart';
-import '../../../../data/model/functions.dart';
+import '../../../../Core/Constant/fonts.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({
@@ -21,15 +20,15 @@ class CartItem extends StatelessWidget {
     return Dismissible(
       background: Container(
         height: 100,
-        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width / 1.7),
+        padding: EdgeInsets.only(left: AppSize.screenWidth / 1.7),
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: lightPink,
+          color:AppColor.lightPink,
         ),
-        child: Icon(
+        child: const Icon(
           Icons.delete_outline_outlined,
-          color: red,
+          color: AppColor.red,
           size: 30,
         ),
       ),
@@ -41,7 +40,7 @@ class CartItem extends StatelessWidget {
             height: 100,
             width: 120,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20), color: lightGrey),
+                borderRadius: BorderRadius.circular(20), color:AppColor. lightGrey),
             child: Image.asset(
               image,
               fit: BoxFit.scaleDown,
@@ -61,11 +60,11 @@ class CartItem extends StatelessWidget {
                   children: <TextSpan>[
                     TextSpan(
                       text: '\n\$$price ',
-                      style: Themes().currentTheme.textTheme.caption,
+                      style: Theme.of(context).textTheme.caption,
                     ),
                     TextSpan(
                         text: '  x$quantity',
-                        style: Themes().currentTheme.textTheme.headline6),
+                        style: Theme.of(context).textTheme.headline6),
                   ],
                 ),
               ),

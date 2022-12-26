@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../Core/Constant/Colors.dart';
-import '../../../../Core/Theme/Themes.dart';
 
 class MoreDetail extends StatelessWidget {
   const MoreDetail({
@@ -25,11 +24,11 @@ class MoreDetail extends StatelessWidget {
                 children: [
                   Text(
                     'See More Detail',
-                    style: Themes().currentTheme.textTheme.caption,
+                    style: Theme.of(context).textTheme.caption,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.arrow_forward_ios,
-                    color: orange,
+                    color:AppColor. orange,
                     size: 15,
                   )
                 ],

@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../Core/Constant/Colors.dart';
-import '../../Core/Theme/Themes.dart';
 
 class PageTitle extends StatelessWidget {
   const PageTitle({
     Key? key,
-    required this.title,
+    required this.title,@required this.backArrowVisiablity,
   }) : super(key: key);
   final String title;
+  final bool? backArrowVisiablity;
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        IconButton(
+     backArrowVisiablity ==true ?   IconButton(
             onPressed: () {
               Get.back();
             },
-            icon: Icon(
+            icon:const Icon(
               Icons.arrow_back,
-              color: deepGrey,
-            )),
+              color:AppColor. deepGrey,
+            )): const Text(''),
         Text(
           title,
-          style: Themes().currentTheme.textTheme.headline3,
+          style: Theme.of(context).textTheme.headline3,
         ),
         const SizedBox(
           width: 30,
-        )
+        ) 
       ],
     );
   }

@@ -15,9 +15,9 @@ class MainPage extends StatelessWidget {
         builder: (controller) => BottomNavigationBar(
             currentIndex: controller.currentindex,
             onTap: (val) => controller.changePage(val),
-            selectedItemColor: orange,
-            unselectedItemColor: deepGrey,
-            backgroundColor: lightGrey,
+            selectedItemColor:AppColor. orange,
+            unselectedItemColor:AppColor. deepGrey,
+            backgroundColor:AppColor. lightGrey,
             enableFeedback: false,
             items: const [
               BottomNavigationBarItem(

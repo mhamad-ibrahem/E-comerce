@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../controller/DetailesController.dart';
-import '../../../../Core/Theme/Themes.dart';
 
 class DescriptionText extends StatelessWidget {
   const DescriptionText({
@@ -23,7 +21,7 @@ class DescriptionText extends StatelessWidget {
           child: Text(
             _detailesController.products[0].description,
             maxLines: _detailesController.maxlines,
-            style: Themes().currentTheme.textTheme.headline1,
+            style: Theme.of(context).textTheme.headline1,
             overflow: TextOverflow.ellipsis,
           ),
         ),

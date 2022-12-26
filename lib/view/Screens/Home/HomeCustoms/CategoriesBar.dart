@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../Core/Theme/Themes.dart';
 
@@ -59,16 +58,16 @@ class CategoriesBox extends StatelessWidget {
               height: 50,
               width: 50,
               decoration: BoxDecoration(
-                  color: pink, borderRadius: BorderRadius.circular(10)),
+                  color: AppColor.pink, borderRadius: BorderRadius.circular(10)),
               child: Icon(
                 icon,
-                color: orange,
+                color: AppColor.orange,
               ),
             ),
           ),
           Text(
             text,
-            style: Themes().currentTheme.textTheme.headline2,
+            style: Theme.of(context).textTheme.headline2,
           )
         ],
       ),

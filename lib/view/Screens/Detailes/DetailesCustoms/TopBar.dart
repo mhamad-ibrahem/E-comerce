@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../controller/DetailesController.dart';
 
@@ -21,7 +20,7 @@ class TopBar extends StatelessWidget {
         IconButton(
           onPressed: () => Get.back(),
           icon: const Icon(Icons.arrow_back),
-          color: black,
+          color: AppColor.black,
         ),
         const SizedBox(
           width: 100,
@@ -30,15 +29,15 @@ class TopBar extends StatelessWidget {
           children: [
             Text(
               '${_detailesController.products[0].rate}',
-              style: TextStyle(
-                  color: black,
+              style: const TextStyle(
+                  color: AppColor.black,
                   fontSize: 15,
                   fontFamily: 'muli',
                   fontWeight: FontWeight.bold),
             ),
-            Icon(
+            const Icon(
               Icons.star_rounded,
-              color: yellow,
+              color:AppColor. yellow,
             )
           ],
         )

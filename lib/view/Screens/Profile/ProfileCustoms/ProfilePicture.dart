@@ -1,3 +1,4 @@
+import 'package:ecommerce/Core/Constant/imageAsset.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../Core/Constant/Colors.dart';
@@ -13,9 +14,9 @@ class ProfilePicture extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 65,
-          backgroundColor: lightGrey,
+          backgroundColor:AppColor. lightGrey,
           child: Image.asset(
-            'assets/images/user.png',
+            AppImageAsset.profileImage,
             height: 70,
             width: 70,
           ),
@@ -25,12 +26,12 @@ class ProfilePicture extends StatelessWidget {
             right: 0,
             child: CircleAvatar(
               radius: 25,
-              backgroundColor: white,
+              backgroundColor:AppColor. white,
               child: IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon:const Icon(
                     Icons.add_a_photo_outlined,
-                    color: deepGrey,
+                    color:AppColor. deepGrey,
                   )),
             ))
       ],

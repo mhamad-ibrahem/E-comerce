@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../Core/Constant/Colors.dart';
+import '../../../../Core/Constant/ScreenSize.dart';
 import '../../../../controller/DetailesController.dart';
 
 class FavouriteButton extends StatelessWidget {
@@ -20,33 +20,33 @@ class FavouriteButton extends StatelessWidget {
               ? Container(
                   height: 50,
                   margin: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width / 1.2),
+                      left: AppSize.screenWidth / 1.2),
                   width: 80,
-                  decoration: BoxDecoration(
-                    color: lightPink,
-                    borderRadius: const BorderRadius.only(
+                  decoration: const BoxDecoration(
+                    color: AppColor.lightPink,
+                    borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(40),
                         bottomLeft: Radius.circular(40)),
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.favorite,
-                    color: red,
+                    color: AppColor.red,
                   ),
                 )
               : Container(
                   height: 50,
                   margin: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width / 1.2),
+                      left: AppSize.screenWidth / 1.2),
                   width: 80,
-                  decoration: BoxDecoration(
-                    color: grey,
-                    borderRadius: const BorderRadius.only(
+                  decoration: const BoxDecoration(
+                    color: AppColor.grey,
+                    borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(40),
                         bottomLeft: Radius.circular(40)),
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.favorite,
-                    color: deepGrey,
+                    color:AppColor. deepGrey,
                   ),
                 )),
     );

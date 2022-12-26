@@ -1,10 +1,8 @@
-import 'package:ecommerce/view/Screens/Cart/Cart.dart';
+import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/view/Widget/RedDot.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../Core/Constant/Colors.dart';
-import '../../../../Core/Theme/Themes.dart';
 
 class HomePageHeaders extends StatelessWidget {
   const HomePageHeaders({
@@ -20,14 +18,14 @@ class HomePageHeaders extends StatelessWidget {
           flex: 3,
           child: Container(
             decoration: BoxDecoration(
-                color: lightGrey, borderRadius: BorderRadius.circular(10)),
+                color: AppColor.lightGrey, borderRadius: BorderRadius.circular(10)),
             child: TextField(
               decoration: InputDecoration(
                   hintText: 'Search product',
-                  hintStyle: Themes().currentTheme.textTheme.headline1,
-                  prefixIcon: Icon(
+                  hintStyle: Theme.of(context).textTheme.headline1,
+                  prefixIcon: const Icon(
                     Icons.search,
-                    color: deepGrey,
+                    color: AppColor.deepGrey,
                   ),
                   border: InputBorder.none),
             ),
@@ -36,13 +34,13 @@ class HomePageHeaders extends StatelessWidget {
         Expanded(
           flex: 1,
           child: CircleAvatar(
-            backgroundColor: lightGrey,
+            backgroundColor:AppColor. lightGrey,
             radius: 25,
             child: IconButton(
-                onPressed: () => Get.to(Cart()),
-                icon: Icon(
+                onPressed: () => Get.toNamed( AppRoute.cart),
+                icon: const Icon(
                   Icons.shopping_cart_outlined,
-                  color: deepGrey,
+                  color:AppColor. deepGrey,
                 )),
           ),
         ),
@@ -51,13 +49,13 @@ class HomePageHeaders extends StatelessWidget {
             child: Stack(
               children: [
                 CircleAvatar(
-                  backgroundColor: lightGrey,
+                  backgroundColor:AppColor. lightGrey,
                   radius: 25,
                   child: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.notifications_outlined,
-                        color: deepGrey,
+                        color:AppColor. deepGrey,
                       )),
                 ),
                 redDot()

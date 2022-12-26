@@ -1,7 +1,6 @@
-import 'package:ecommerce/Core/Constant/Colors.dart';
-import 'package:ecommerce/Core/Theme/Themes.dart';
+
+import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/view/Widget/PageTitle.dart';
-import 'package:ecommerce/view/Screens/Settings/SettingsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +13,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      const PageTitle(title: 'Profile'),
+      const PageTitle(title: 'Profile', backArrowVisiablity: false,),
       const SizedBox(
         height: 10,
       ),
@@ -34,7 +33,7 @@ class ProfilePage extends StatelessWidget {
       ProfileItem(
           title: 'Settings',
           icon: Icons.settings_outlined,
-          onTap: () => Get.to(() => SettingsPage())),
+          onTap: () => Get.toNamed(AppRoute.settings)),
       ProfileItem(title: 'Help Center', icon: Icons.help_outline, onTap: () {}),
       ProfileItem(title: 'Log Out', icon: Icons.logout_outlined, onTap: () {}),
       const SizedBox(

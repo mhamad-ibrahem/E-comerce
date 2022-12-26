@@ -1,3 +1,4 @@
+import 'package:ecommerce/Core/Constant/imageAsset.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../Core/Constant/Colors.dart';
@@ -14,17 +15,17 @@ class BrandsListView extends StatelessWidget {
       width: double.infinity,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: [
+        children: const[
           SpecialOpacityContainer(
             title: 'Smartphone',
             subtitle: '18 Brands',
-            image: 'assets/images/Image Banner 2.png',
+            image: AppImageAsset.bannerimage1 ,
           ),
           SizedBox(width: 10),
           SpecialOpacityContainer(
               title: 'Fashion',
               subtitle: '24 Brands',
-              image: 'assets/images/Image Banner 3.png')
+              image: AppImageAsset.bannerimage2 )
         ],
       ),
     );
@@ -60,7 +61,7 @@ class SpecialOpacityContainer extends StatelessWidget {
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomLeft,
-                  colors: [black.withOpacity(0.4), white.withOpacity(0.2)],
+                  colors: [AppColor.black.withOpacity(0.4),AppColor. white.withOpacity(0.2)],
                   stops: const [0.0003, 1]),
               borderRadius: BorderRadius.circular(25),
             ),
@@ -69,15 +70,15 @@ class SpecialOpacityContainer extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
-                      color: white,
+                  style: const TextStyle(
+                      color: AppColor.white,
                       fontSize: 20,
                       fontFamily: 'muli',
                       fontWeight: FontWeight.w900),
                 ),
                 Text(subtitle,
-                    style: TextStyle(
-                        color: white,
+                    style: const TextStyle(
+                        color:AppColor. white,
                         fontSize: 15,
                         fontFamily: 'muli',
                         fontWeight: FontWeight.bold))

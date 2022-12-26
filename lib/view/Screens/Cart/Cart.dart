@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'CartCustoms/BottomSizedBox.dart';
-
 import 'CartCustoms/CartItemsList.dart';
 
 class Cart extends StatelessWidget {

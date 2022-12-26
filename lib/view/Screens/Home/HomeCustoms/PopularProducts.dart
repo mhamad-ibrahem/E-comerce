@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../Core/Constant/Colors.dart';
+import '../../../../Core/Constant/ScreenSize.dart';
 
 class PopularProductsListView extends StatelessWidget {
   PopularProductsListView({
@@ -49,10 +50,10 @@ class PopularProductsObject extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 100,
-        width: MediaQuery.of(context).size.width / 2.5,
+        width: AppSize.screenWidth / 2.5,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: lightGrey,
+            color:AppColor. lightGrey,
             image: DecorationImage(image: AssetImage(image))),
       ),
     );

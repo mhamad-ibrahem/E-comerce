@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../controller/DetailesController.dart';
 import 'DotColors.dart';
@@ -32,7 +31,7 @@ class DotsOfColors extends StatelessWidget {
                       decoration: _detailesController.chosenColor == index
                           ? BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              border: Border.all(color: red))
+                              border: Border.all(color: AppColor.red))
                           : null,
                       child: DotColors(
                           dotColor: _detailesController.dotcolors[index])),

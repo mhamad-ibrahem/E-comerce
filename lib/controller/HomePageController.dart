@@ -1,8 +1,9 @@
+import 'package:ecommerce/Core/Constant/imageAsset.dart';
+import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/data/model/Poducts.dart';
 import 'package:ecommerce/view/Screens/Chat/Chat.dart';
 import 'package:ecommerce/view/Screens/Detailes/Detailes.dart';
 import 'package:ecommerce/view/Screens/Favourite/Favourite.dart';
-
 import 'package:ecommerce/view/Screens/Home/HomePage.dart';
 import 'package:ecommerce/view/Screens/Profile/Profile.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,14 +24,14 @@ class HomePageController extends GetxController {
 
   List<PopularProducts> popularProduct = [
     PopularProducts(
-        id: 'joy', image: 'assets/images/Image Popular Product 1.png'),
+        id: 'joy', image: AppImageAsset.popularProductimage1),
     PopularProducts(
-        id: 'short', image: 'assets/images/Image Popular Product 2.png'),
+        id: 'short', image:  AppImageAsset.popularProductimage2),
     PopularProducts(
-        id: 'hat', image: 'assets/images/Image Popular Product 3.png')
+        id: 'hat', image:  AppImageAsset.popularProductimage3)
   ];
   productDetailes(int i) {
-    Get.to(() => ProductsDetailes(), arguments: {
+    Get.toNamed( AppRoute.details, arguments: {
       'id': popularProduct[i].id,
       'image': popularProduct[i].image
     });

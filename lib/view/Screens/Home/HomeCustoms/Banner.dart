@@ -14,26 +14,26 @@ class BannerContainer extends StatelessWidget {
         height: 90,
         width: double.infinity,
         decoration: BoxDecoration(
-            color: bluePurpleM,
+            color:AppColor. bluePurpleM,
             borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(
+            gradient:const LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [bluePurpleS, bluePurpleM],
-                stops: const [0.1, 1])),
+                colors: [AppColor.bluePurpleS,AppColor. bluePurpleM],
+                stops:  [0.1, 1])),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children:const [
             Text('A Summer surpries',
                 style: TextStyle(
-                  color: white,
+                  color:AppColor. white,
                   fontSize: 13,
                   fontFamily: 'muli',
                 )),
             Text(
               'Cashback 20%',
               style: TextStyle(
-                  color: white,
+                  color:AppColor. white,
                   fontSize: 25,
                   fontFamily: 'muli',
                   fontWeight: FontWeight.w900),

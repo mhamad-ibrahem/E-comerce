@@ -1,3 +1,4 @@
+import 'package:ecommerce/Core/Constant/imageAsset.dart';
 import 'package:ecommerce/data/model/Poducts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -8,7 +9,12 @@ class DetailesController extends GetxController {
   //Products List
   List<Product> products = [];
   //Dot Colors List
-  List<Color> dotcolors = [red, bluePurpled, thirdDotColor, white];
+  List<Color> dotcolors = [
+    AppColor.red,
+    AppColor.bluePurpled,
+    AppColor.thirdDotColor,
+    AppColor.white
+  ];
   //Change upper image
   int chosenImage = 0;
   changeChosenImage(int index) {
@@ -60,10 +66,10 @@ class DetailesController extends GetxController {
           description:
               'Wireless Controller for PS4 gives you what you want in your gaming from over precision control your games sharing and it last for several hours without needing to recharge',
           images: [
-            'assets/images/ps4_console_${color}_1.png',
-            'assets/images/ps4_console_${color}_2.png',
-            'assets/images/ps4_console_${color}_3.png',
-            'assets/images/ps4_console_${color}_4.png'
+            '${AppImageAsset.detailsRoute}ps4_console_${color}_1.png',
+            '${AppImageAsset.detailsRoute}ps4_console_${color}_2.png',
+            '${AppImageAsset.detailsRoute}ps4_console_${color}_3.png',
+            '${AppImageAsset.detailsRoute}ps4_console_${color}_4.png',
           ])
     ];
     update();
@@ -93,10 +99,10 @@ class DetailesController extends GetxController {
           description:
               'Wireless Controller for PS4 gives you what you want in your gaming from over precision control your games sharing and it last for several hours without needing to recharge',
           images: [
-            'assets/images/ps4_console_${color}_1.png',
-            'assets/images/ps4_console_${color}_2.png',
-            'assets/images/ps4_console_${color}_3.png',
-            'assets/images/ps4_console_${color}_4.png'
+            '${AppImageAsset.detailsRoute}ps4_console_${color}_1.png',
+            '${AppImageAsset.detailsRoute}ps4_console_${color}_2.png',
+            '${AppImageAsset.detailsRoute}ps4_console_${color}_3.png',
+            '${AppImageAsset.detailsRoute}ps4_console_${color}_4.png',
           ])
     ];
     super.onInit();

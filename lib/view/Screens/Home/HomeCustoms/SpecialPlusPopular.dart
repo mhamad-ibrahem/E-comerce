@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../Core/Constant/Colors.dart';
-import '../../../../Core/Theme/Themes.dart';
 
 class SpecialPlusPopular extends StatelessWidget {
   const SpecialPlusPopular({
@@ -17,8 +16,8 @@ class SpecialPlusPopular extends StatelessWidget {
       children: [
         Text(
           blackText,
-          style: TextStyle(
-              color: black,
+          style: const TextStyle(
+              color:AppColor. black,
               fontSize: 20,
               fontFamily: 'muli',
               fontWeight: FontWeight.w400),
@@ -27,7 +26,7 @@ class SpecialPlusPopular extends StatelessWidget {
           onPressed: () {},
           child: Text(
             'See More',
-            style: Themes().currentTheme.textTheme.headline6,
+            style: Theme.of(context).textTheme.headline6,
           ),
         )
       ],

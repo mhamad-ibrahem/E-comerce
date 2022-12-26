@@ -1,7 +1,5 @@
+import 'package:ecommerce/Core/Constant/imageAsset.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../Core/Theme/Themes.dart';
-import '../../../../data/model/functions.dart';
 import 'CartItem.dart';
 import 'CartPageHeaders.dart';
 import 'StoreName.dart';
@@ -27,7 +25,7 @@ class CartItemsList extends StatelessWidget {
           ),
 
           CartItem(
-            image: 'assets/images/ps4_console_white_1.png',
+            image: AppImageAsset.ps4consolewhiteimage1,
             price: '64.99',
             quantity: '1',
             title: 'Wireless Controller for\nPS4',
@@ -36,7 +34,7 @@ class CartItemsList extends StatelessWidget {
             height: 20,
           ),
           CartItem(
-              image: 'assets/images/wireless headset.png',
+              image: AppImageAsset.wirelessHeadsetimage,
               title: 'Logetich Zone Wireless\n Headset',
               price: '90.00',
               quantity: '1'),
@@ -48,7 +46,7 @@ class CartItemsList extends StatelessWidget {
             height: 40,
           ),
           CartItem(
-            image: 'assets/images/shoes2.png',
+            image: AppImageAsset.shoesimage,
             price: '131.18',
             quantity: '1',
             title: 'Nike Joyride Run Flyknit\n-Men\'s Running',
@@ -57,7 +55,7 @@ class CartItemsList extends StatelessWidget {
             height: 20,
           ),
           CartItem(
-              image: 'assets/images/tshirt.png',
+              image: AppImageAsset.tshirtimage,
               title: 'Orange T-Shirt for Men\nWith Discount',
               price: '30.99',
               quantity: '1'),

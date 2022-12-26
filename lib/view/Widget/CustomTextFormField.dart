@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../../Core/Constant/Colors.dart';
-import '../../Core/Theme/Themes.dart';
+
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -8,67 +9,69 @@ class CustomTextFormField extends StatelessWidget {
     required this.icon,
     required this.label,
     required this.hint,
-    required this.inputType,
     required this.obscure,
     required this.errorVal,
     required this.vallengthError,
     required this.valreturn,
     required this.textEditingController,
+    required this.validator,
+    this.inputType,
+    @required this.suffixIcon,
   }) : super(key: key);
   final IconData icon;
   final String label;
   final String hint;
-  final TextInputType inputType;
   final bool obscure;
   final String errorVal;
   final int vallengthError;
+  final TextInputType? inputType;
   final String valreturn;
   final TextEditingController textEditingController;
+  final String? Function(String?) validator;
+  final Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: TextFormField(
-        validator: (val) {
-          if (val!.isEmpty) {
-            return '$errorVal can\'t be empty';
-          }
-          if (val.length < vallengthError) {
-            return valreturn;
-          }
-          return null;
-        },
-        style: TextStyle(
-            color: black,
-            fontSize: 15,
-            fontFamily: 'muli',
-            fontWeight: FontWeight.bold),
-        obscureText: obscure,
-        keyboardType: inputType,
-        maxLines: 1,
-        cursorColor: deepGrey,
-        onChanged: (val) {
-          textEditingController.text = val;
-        },
-        decoration: InputDecoration(
-            suffixIcon: Icon(
+    return TextFormField(
+      controller: textEditingController,
+      validator: validator,
+      style: const TextStyle(
+          color:AppColor. black,
+          fontSize: 15,
+          fontFamily: 'muli',
+          fontWeight: FontWeight.bold),
+      obscureText: obscure,
+      maxLines: 1,
+      cursorColor:AppColor. deepGrey,
+      keyboardType: inputType,
+      decoration: InputDecoration(
+          suffixIcon: suffixIcon,
+          prefixIcon: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Icon(
               icon,
-              color: deepGrey,
+              color:AppColor. deepGrey,
             ),
-            contentPadding:
-                const EdgeInsets.only(left: 40, right: 0, top: 20, bottom: 20),
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            hintText: hint,
-            hintStyle: Themes().currentTheme.textTheme.headline1,
-            labelText: label,
-            labelStyle: Themes().currentTheme.textTheme.headline1,
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: deepGrey)),
-            border: OutlineInputBorder(
+          ),
+          contentPadding:
+              const EdgeInsets.only(left: 0, right: 0, top: 20, bottom: 20),
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          hintText: hint,
+          hintStyle: Theme.of(context).textTheme.headline1,
+          labelText: label,
+          labelStyle: const TextStyle(
+              fontSize: 17, color:AppColor. deepOrange, fontWeight: FontWeight.bold,),
+          focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
-            )),
-      ),
+              borderSide: const BorderSide(color:AppColor. deepOrange, width: 2)),
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(color:AppColor. deepGrey)),
+              errorBorder:OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(color:AppColor. red,width: 2)) ,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+          )),
     );
   }
 }

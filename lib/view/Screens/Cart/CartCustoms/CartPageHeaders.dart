@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../../Core/Theme/Themes.dart';
-import '../../../../data/model/functions.dart';
+import '../../../../Core/Constant/fonts.dart';
 
 class CartPageHeaders extends StatelessWidget {
   const CartPageHeaders({
@@ -24,7 +22,7 @@ class CartPageHeaders extends StatelessWidget {
             ),
             Text(
               '4 items',
-              style: Themes().currentTheme.textTheme.headline6,
+              style: Theme.of(context).textTheme.headline6,
             ),
           ],
         ),

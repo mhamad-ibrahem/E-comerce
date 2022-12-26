@@ -1,11 +1,7 @@
-import 'package:ecommerce/Core/Constant/Colors.dart';
+
 import 'package:ecommerce/controller/DetailesController.dart';
-import 'package:ecommerce/Core/Theme/Themes.dart';
-import 'package:ecommerce/view/Widget/CustomButton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'DetailesCustoms/DotColors.dart';
 import 'PageStructer/BottomColumn.dart';
 import 'PageStructer/TopColumn.dart';
 

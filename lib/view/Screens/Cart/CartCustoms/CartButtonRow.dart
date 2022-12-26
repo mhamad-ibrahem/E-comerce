@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../Core/Constant/ScreenSize.dart';
 import '../../../../Core/Theme/Themes.dart';
-import '../../../../data/model/functions.dart';
+import '../../../../Core/Constant/fonts.dart';
 import '../../../Widget/CustomButton.dart';
 
 class CartButtonRow extends StatelessWidget {
@@ -28,10 +29,11 @@ class CartButtonRow extends StatelessWidget {
           ),
         ),
         CustomButton(
-            onTap: () {},
-            buttonBody: 'Check Out',
-            buttonradius: 20,
-            containerWidth: MediaQuery.of(context).size.width / 2)
+          onTap: () {},
+          buttonBody: 'Check Out',
+          leftPadding: AppSize.screenWidth* 0.2,
+          rightPadding: AppSize.screenWidth* 0.2,
+        )
       ],
     );
   }

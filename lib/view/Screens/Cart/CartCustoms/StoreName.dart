@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../data/model/functions.dart';
+import '../../../../Core/Constant/fonts.dart';
 
 class StoreName extends StatelessWidget {
   const StoreName({
