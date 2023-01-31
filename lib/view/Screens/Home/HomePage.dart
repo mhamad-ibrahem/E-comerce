@@ -1,69 +1,96 @@
-import 'package:ecommerce/controller/HomePageController.dart';
-
+import 'package:ecommerce/Core/classes/HandilingData.dart';
+import 'package:ecommerce/controller/Home/HomeController.dart';
+import 'package:ecommerce/data/model/Home/Items/ItemsModel.dart';
+import 'package:ecommerce/view/Screens/Home/HomeCustoms/HomeCategories.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'HomeCustoms/Banner.dart';
 import 'HomeCustoms/BrandsListView.dart';
-import 'HomeCustoms/CategoriesBar.dart';
 import 'HomeCustoms/HomePageHeaders.dart';
 import 'HomeCustoms/PopularProducts.dart';
 import 'HomeCustoms/SpecialPlusPopular.dart';
 
 class HomePage extends GetView {
-  HomePage({
+  const HomePage({
     Key? key,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
+    Get.put(HomeControllerImplement());
+    return Scaffold(
+      body: GetBuilder<HomeControllerImplement>(
+        builder: (controller) => HandilingDataView(
+            statusRequest: controller.statusRequest!,
+            widget: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
 
-            //Top Bar
+                    //Top Bar
 
-            const HomePageHeaders(),
-            const SizedBox(
-              height: 30,
-            ),
+                    const HomePageHeaders(),
+                    const SizedBox(
+                      height: 30,
+                    ),
 
-            //CashBack
+                    //CashBack
+                    const BannerContainer(),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const HomeCategories(),
 
-            const BannerContainer(),
-            const SizedBox(
-              height: 20,
-            ),
-            const CategoriesBar(),
+                    //Special for you Text
 
-            //Special for you Text
+                    const SpecialPlusPopular(
+                      blackText: 'Special for you',
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    //Brands
+                    const BrandsListView(),
 
-            const SpecialPlusPopular(
-              blackText: 'Special for you',
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            //Brands
-            const BrandsListView(),
+                    //Popular Product upper Text
 
-            //Popular Product upper Text
+                    const SpecialPlusPopular(blackText: 'Popular Product'),
+                    const SizedBox(
+                      height: 10,
+                    ),
 
-            const SpecialPlusPopular(blackText: 'Popular Product'),
-            const SizedBox(
-              height: 10,
-            ),
+                    //Popular Product List
 
-            //Popular Product List
-
-            PopularProductsListView()
-          ],
-        ),
+                    GetBuilder<HomeControllerImplement>(
+                      builder: (controller) => SizedBox(
+                        height: 120,
+                        width: double.infinity,
+                        child: ListView.builder(
+                          itemCount: controller.popularItems.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, i) {
+                            return Row(
+                              children: [
+                                PopularProductsObject(
+                                  itemsModel: ItemsModel.fromJson(
+                                      controller.popularItems[i]),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            )),
       ),
     );
   }

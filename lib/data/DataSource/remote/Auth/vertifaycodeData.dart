@@ -12,4 +12,11 @@ class VertifaycodeData {
     });
     return response.fold((l) => l, (r) => r);
   }
+
+  resendCode(String email) async {
+    var response = await crud.postData(AppLinks.resendCodeLink, {
+      'email': email,
+    });
+    return response.fold((l) => l, (r) => r);
+  }
 }

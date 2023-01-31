@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:ecommerce/Core/classes/statusRequest.dart';
 import 'package:ecommerce/data/DataSource/remote/Auth/Forget%20Password/vertifayPasswordData.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,11 @@ class OtpVertificationPasswordImplement extends OtpVertificationController {
   StatusRequest statusRequest = StatusRequest.none;
   VertifayPasswordData vertifayPasswordData = VertifayPasswordData(Get.find());
   String? email;
+  Timer? timer;
+  int remainingSeconds =1;
+  int times = 30;
+  bool activitButton = false;
+  
   @override
   void otpValidate(String vertifaycode) async {
     statusRequest = StatusRequest.loading;
@@ -29,6 +35,41 @@ class OtpVertificationPasswordImplement extends OtpVertificationController {
         statusRequest = StatusRequest.faliure;
       }
     }
+  }
+  resendCode(){
+   vertifayPasswordData.resendCode(email!);
+   startTimer(30);
+  }
+   startTimer(int seconds) {
+    const duration = Duration(seconds: 1);
+    remainingSeconds = seconds;
+    timer = Timer.periodic(duration, (time) {
+      if (remainingSeconds == 0) {
+        times = remainingSeconds;
+        activitButton = true;
+        time.cancel();
+        update();
+      } else {
+        times = remainingSeconds;
+        remainingSeconds--;
+        activitButton = false;
+        update();
+      }
+    });
+    update();
+  }
+
+  @override
+  void onReady() {
+    startTimer(30);
+    super.onReady();
+  }
+  @override
+  void onClose() {
+    if (timer != null) {
+      timer!.cancel();
+    }
+    super.onClose();
   }
 
   @override

@@ -11,11 +11,11 @@ class HandilingDataView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return statusRequest == StatusRequest.loading
-        ? Center(child: Lottie.asset(AppImageAsset.loadingImage,width: 100,height: 100,fit: BoxFit.fill))
+        ? Center(child: Lottie.asset(AppImageAsset.loadingImage,width: 50,height: 50,fit: BoxFit.fill))
         : statusRequest == StatusRequest.faliure
             ? Center(child: Lottie.asset(AppImageAsset.errorImage))
             : statusRequest == StatusRequest.offlineFaliure
-                ? Center(child: Lottie.asset(AppImageAsset.offlineImage))
+                ? Center(child: Lottie.asset(AppImageAsset.offlineImage,width: 200,height: 200,fit: BoxFit.fill))
                 : statusRequest == StatusRequest.serverFaliure
                     ? Center(
                         child: Lottie.asset(AppImageAsset.serverErrorImage,width: 400,height: 400))
@@ -31,7 +31,7 @@ class HandilingDataRequest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return statusRequest == StatusRequest.loading
-        ? Center(child: Lottie.asset(AppImageAsset.loadingImage,width: 100,height: 100,fit: BoxFit.fill))
+        ? Center(child: Lottie.asset(AppImageAsset.loadingImage,width: 50,height: 50,fit: BoxFit.fill))
             : statusRequest == StatusRequest.offlineFaliure
                 ? Center(child: Lottie.asset(AppImageAsset.offlineImage))
                 : statusRequest == StatusRequest.serverFaliure

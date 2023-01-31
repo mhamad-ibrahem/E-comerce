@@ -1,17 +1,11 @@
+import 'package:ecommerce/controller/DetailesController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
-import '../../../../controller/DetailesController.dart';
 
-class TopBar extends StatelessWidget {
-  const TopBar({
-    Key? key,
-    required DetailesController detailesController,
-  })  : _detailesController = detailesController,
-        super(key: key);
 
-  final DetailesController _detailesController;
-
+class TopBar extends GetView<DetailesControllerImplement> {
+  const TopBar({super.key});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,7 +22,7 @@ class TopBar extends StatelessWidget {
         Row(
           children: [
             Text(
-              '${_detailesController.products[0].rate}',
+              '${controller.itemsModel.itemRate}',
               style: const TextStyle(
                   color: AppColor.black,
                   fontSize: 15,

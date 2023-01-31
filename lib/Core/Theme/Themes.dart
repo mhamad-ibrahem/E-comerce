@@ -22,7 +22,7 @@ class Themes {
               color:AppColor. deepGrey,
               fontSize: 20,
               fontFamily: 'muli',
-              fontWeight: FontWeight.w800),
+              fontWeight: FontWeight.bold),
           headline4: TextStyle(
               color:AppColor. black,
               fontSize: 30,

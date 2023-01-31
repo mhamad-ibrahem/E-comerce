@@ -1,4 +1,4 @@
-import 'package:ecommerce/Core/classes/statusRequest.dart';
+
 import 'package:ecommerce/controller/Auth/SignIn/SignInController.dart';
 import 'package:ecommerce/view/Widget/CustomButton.dart';
 import 'package:ecommerce/view/Screens/auth/SignIn/Custom/FaceGoogleTwitterAuth.dart';
@@ -17,7 +17,7 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut((() => SignInImplement()));
+    Get.put(SignInImplement());
     return SafeArea(
         child: WillPopScope(
       onWillPop: closeAppDialog,
@@ -73,8 +73,7 @@ class SignIn extends StatelessWidget {
                             controller.signInvalidate();
                           },
                           buttonBody: 'Continue',
-                          leftPadding: AppSize.screenWidth * 0.34,
-                          rightPadding: AppSize.screenWidth * 0.34,
+                         buttonWidth: AppSize.screenWidth * 0.75,
                         ),
                         const SizedBox(
                           height: 50,

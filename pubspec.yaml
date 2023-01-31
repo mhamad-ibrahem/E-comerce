@@ -45,6 +45,16 @@ dependencies:
   #local storage packges
   hive_flutter: ^1.1.0
   hive: ^2.2.3
+  #fireBase And Notification
+  firebase_messaging: ^14.2.0
+  firebase_core: ^2.4.0
+  cloud_firestore: ^4.3.0
+  flutter_local_notifications: ^13.0.0
+  #image cache
+  cached_network_image: ^3.2.3
+  flutter_rating_bar: ^4.0.1
+  flutter_cache_manager: ^3.3.0
+
   
   
   

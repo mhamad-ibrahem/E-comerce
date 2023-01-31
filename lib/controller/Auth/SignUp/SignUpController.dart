@@ -1,6 +1,7 @@
 import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/Core/functions/warningAuthDialog.dart';
 import 'package:ecommerce/data/DataSource/remote/Auth/signupData.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,6 +26,7 @@ class SignUpImplement extends SignUpController {
   GlobalKey<FormState> signUpState = GlobalKey<FormState>();
   bool passwordObscure = true;
   bool confirmPasswordObscure = true;
+  String? token;
   StatusRequest statusRequest = StatusRequest.none;
   SignupData signupData = SignupData(Get.find());
   List data = [];
@@ -43,7 +45,7 @@ class SignUpImplement extends SignUpController {
       statusRequest = StatusRequest.loading;
       update();
       var response = await signupData.postData(name.text, signUpEmail.text,
-          signUppassword.text, phoneNumber.text, address.text);
+          signUppassword.text, phoneNumber.text, address.text, token!);
       statusRequest = handilingData(response);
       print(response);
       if (StatusRequest.success == statusRequest) {
@@ -52,7 +54,7 @@ class SignUpImplement extends SignUpController {
           Get.offAllNamed(AppRoute.signUpOtp,
               arguments: {"email": signUpEmail.text});
         } else {
-          warningAuthDialog('email or phone number already exsist' );
+          warningAuthDialog('email or phone number already exsist');
           statusRequest = StatusRequest.faliure;
         }
       }
@@ -80,6 +82,10 @@ class SignUpImplement extends SignUpController {
     name = TextEditingController();
     phoneNumber = TextEditingController();
     address = TextEditingController();
+    FirebaseMessaging.instance.getToken().then((value) {
+      print(value);
+      token = value;
+    });
     super.onInit();
   }
 

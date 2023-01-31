@@ -1,27 +1,20 @@
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../Core/Constant/ScreenSize.dart';
 import '../../../../controller/DetailesController.dart';
-import '../../../../Core/Constant/fonts.dart';
 import '../../../Widget/CustomButton.dart';
 import '../DetailesCustoms/ColorsAndQuntity.dart';
 import '../DetailesCustoms/DescriptionText.dart';
 import '../DetailesCustoms/FavouriteButton.dart';
-import '../DetailesCustoms/MoreDetail.dart';
 
-class BottomColumn extends StatelessWidget {
-  const BottomColumn({
-    Key? key,
-    required DetailesController detailesController,
-  })  : _detailesController = detailesController,
-        super(key: key);
-
-  final DetailesController _detailesController;
+class BottomColumn extends GetView<DetailesControllerImplement> {
+  const BottomColumn({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:AppSize.screenHight / 1.8,
       color: AppColor.lightGrey,
       child: Container(
         padding: const EdgeInsets.only(top: 20),
@@ -32,26 +25,32 @@ class BottomColumn extends StatelessWidget {
             ),
             color: AppColor.white),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Product Name
-            Text(_detailesController.products[0].name, style: blackTextStyle()),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 22),
+              child: Text(controller.itemsModel.itemName!,
+                  style: Theme.of(context).textTheme.headline3!.copyWith(color: AppColor.black)),
+            ),
             //Add to Favourite Button
-            FavouriteButton(detailesController: _detailesController),
+            const FavouriteButton(),
             //Description of The Product
-            DescriptionText(detailesController: _detailesController),
-            //More Detail Button To show More Detailes
-            MoreDetail(detailesController: _detailesController),
+            const DescriptionText(),
             //The Colors And plus-minus Row
-            ColorsAndQuntityContainer(detailesController: _detailesController),
+            const Center(child: ColorsAndQuntityContainer()),
             const SizedBox(
               height: 40,
             ),
-            CustomButton(
-              onTap: () {},
-              buttonBody: 'Add to Chart',
-              leftPadding: AppSize.screenWidth* 0.3,
-              rightPadding: AppSize.screenWidth* 0.3,
+            Center(
+              child: CustomButton(
+                onTap: () {},
+                buttonBody: 'Add to Cart',
+                buttonWidth: AppSize.screenWidth * 0.75,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
           ],
         ),

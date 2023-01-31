@@ -2,6 +2,7 @@ import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/Core/Middleware/Meddelware.dart';
 import 'package:ecommerce/MainPage.dart';
 import 'package:ecommerce/view/Screens/Cart/Cart.dart';
+import 'package:ecommerce/view/Screens/Categories/CategoriesScreen.dart';
 import 'package:ecommerce/view/Screens/Chat/Chat.dart';
 import 'package:ecommerce/view/Screens/Detailes/Detailes.dart';
 import 'package:ecommerce/view/Screens/Favourite/Favourite.dart';
@@ -13,7 +14,6 @@ import 'package:ecommerce/view/Screens/auth/ForgetPassword/ForgotPassword.dart';
 import 'package:ecommerce/view/Screens/auth/ForgetPassword/ResetPassword.dart';
 import 'package:ecommerce/view/Screens/auth/ForgetPassword/Vertification.dart';
 import 'package:ecommerce/view/Screens/auth/LoginSuccess/LoginSuccess.dart';
-import 'package:ecommerce/view/Screens/auth/LoginSuccess/SignUpScuccess.dart';
 import 'package:ecommerce/view/Screens/auth/SignUp/CompleteProfile.dart';
 import 'package:ecommerce/view/Screens/auth/SignUp/OTPVerification.dart';
 import 'package:ecommerce/view/Screens/auth/SignIn/SignIn.dart';
@@ -30,7 +30,7 @@ List<GetPage<dynamic>>? routes = [
 //Auth
   GetPage(
       name: AppRoute.signIn,
-      page: () => SignIn(),
+      page: () =>const SignIn(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
   GetPage(
@@ -60,17 +60,12 @@ List<GetPage<dynamic>>? routes = [
       transitionDuration: const Duration(milliseconds: 700)),
   GetPage(
       name: AppRoute.verificationPage,
-      page: () => VertificationScreen(),
+      page: () =>const VertificationScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
   GetPage(
       name: AppRoute.resetPasswordPage,
       page: () => ResetPasswordPage(),
-      transition: Transition.fade,
-      transitionDuration: const Duration(milliseconds: 700)),
-  GetPage(
-      name: AppRoute.signUpSuccess,
-      page: () => const SignUpSuccess(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
 //main
@@ -114,6 +109,12 @@ List<GetPage<dynamic>>? routes = [
       GetPage(
       name: AppRoute.settings,
       page: () =>const SettingsPage(),
+      transition: Transition.fade,
+      transitionDuration: const Duration(milliseconds: 700)),
+      //categories
+        GetPage(
+      name: AppRoute.categories,
+      page: () =>const CategoriesScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
 ];

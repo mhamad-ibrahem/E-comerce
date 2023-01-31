@@ -9,7 +9,7 @@ import '../../../../Core/functions/Validation.dart';
 import '../../../Widget/PageTitle.dart';
 
 class ForgotPassword extends StatelessWidget {
-  ForgotPassword({Key? key}) : super(key: key);
+   ForgotPassword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +75,7 @@ class ForgotPassword extends StatelessWidget {
                                 controller.forgotPassvalidate();
                               },
                               buttonBody: 'Continue',
-                              leftPadding: AppSize.screenWidth * 0.34,
-                              rightPadding: AppSize.screenWidth * 0.34,
+                              buttonWidth: AppSize.screenWidth * 0.75
                             ),
                             const SizedBox(height: 60),
                           ],

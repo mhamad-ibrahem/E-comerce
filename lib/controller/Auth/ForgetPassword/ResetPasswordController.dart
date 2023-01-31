@@ -34,7 +34,7 @@ class ResetPasswordImplement extends ResetPasswordController {
         if (response['status'] == 'success') {
           Get.offAllNamed(AppRoute.signIn);
         } else {
-          warningAuthDialog('email or password is wrong');
+          warningAuthDialog('try again');
           statusRequest = StatusRequest.faliure;
         }
       } else {

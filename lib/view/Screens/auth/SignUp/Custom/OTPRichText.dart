@@ -3,10 +3,10 @@ import '../../../../../Core/Constant/Colors.dart';
 
 
 class OtpRichText extends StatelessWidget {
-  const OtpRichText({
-    Key? key,
+   const OtpRichText({
+    Key? key, required this.time,
   }) : super(key: key);
-
+  final int time; 
   @override
   Widget build(BuildContext context) {
     return RichText(
@@ -17,9 +17,9 @@ class OtpRichText extends StatelessWidget {
               'We sent your code to your email\nthis code will expired in',
           style: Theme.of(context).textTheme.headline1,
         ),
-        const TextSpan(
-          text: ' 00:30',
-          style: TextStyle(
+         TextSpan(
+          text: "  00.$time",
+          style: const TextStyle(
               color:AppColor.pinkred,
               fontSize: 15,
               fontFamily: 'muli',

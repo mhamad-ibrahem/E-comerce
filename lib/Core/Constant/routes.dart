@@ -10,8 +10,7 @@ class AppRoute {
   static const String loginSuccess = '/LoginSuccess';
   static const String verificationPage = '/vertificationScreen';
   static const String resetPasswordPage = '/ResetPasswordPage';
-  static const String signUpSuccess = '/SignUpSuccess';
-
+  
   //Main
   static const String mainPage = '/MainPage';
   static const String chat = '/Chat';
@@ -24,4 +23,6 @@ class AppRoute {
   static const String cart = '/Cart';
   //profile 
   static const String settings = '/Settings';
+  //categories
+    static const String categories= '/categories';
 }

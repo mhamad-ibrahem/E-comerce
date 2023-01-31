@@ -31,8 +31,7 @@ class CartButtonRow extends StatelessWidget {
         CustomButton(
           onTap: () {},
           buttonBody: 'Check Out',
-          leftPadding: AppSize.screenWidth* 0.2,
-          rightPadding: AppSize.screenWidth* 0.2,
+        buttonWidth: AppSize.screenWidth * 0.55
         )
       ],
     );

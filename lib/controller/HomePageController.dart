@@ -2,7 +2,6 @@ import 'package:ecommerce/Core/Constant/imageAsset.dart';
 import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/data/model/Poducts.dart';
 import 'package:ecommerce/view/Screens/Chat/Chat.dart';
-import 'package:ecommerce/view/Screens/Detailes/Detailes.dart';
 import 'package:ecommerce/view/Screens/Favourite/Favourite.dart';
 import 'package:ecommerce/view/Screens/Home/HomePage.dart';
 import 'package:ecommerce/view/Screens/Profile/Profile.dart';

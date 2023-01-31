@@ -7,20 +7,20 @@ import 'PageStructer/TopColumn.dart';
 
 class ProductsDetailes extends StatelessWidget {
   ProductsDetailes({Key? key}) : super(key: key);
-  final DetailesController _detailesController = Get.put(DetailesController());
-
+  final DetailesControllerImplement controller = Get.put(DetailesControllerImplement());
   @override
   Widget build(BuildContext context) {
+    
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+            children:const  [
               //The Top Part of The Page
-              TopColumn(detailesController: _detailesController),
+              TopColumn(),
               //The Bottom Part of The Page
-              BottomColumn(detailesController: _detailesController),
+              BottomColumn(),
             ],
           ),
         ),

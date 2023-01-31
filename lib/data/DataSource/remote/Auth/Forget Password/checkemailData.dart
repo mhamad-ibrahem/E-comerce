@@ -12,4 +12,5 @@ class CheckemailData {
     });
     return response.fold((l) => l, (r) => r);
   }
+  
 }

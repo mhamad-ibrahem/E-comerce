@@ -20,7 +20,7 @@ class SpecialPlusPopular extends StatelessWidget {
               color:AppColor. black,
               fontSize: 20,
               fontFamily: 'muli',
-              fontWeight: FontWeight.w400),
+              fontWeight: FontWeight.w500),
         ),
         TextButton(
           onPressed: () {},

@@ -19,6 +19,9 @@ static const Color lightPink =  Color(0xfff7dfdf);
 static const Color red =  Color(0xfff74a4a);
 static const Color thirdDotColor =  Color(0xffd7c599);
 static const Color green =  Colors.green;
+static const Color  darkPink = Color(0xFFe37fa0);
+static const Color  cyan = Color(0xFF099688);
+static const Color  blue= Color(0x80678afc);
 // M Stands for Main
 // S Stands for Side
 // C Stands for Dot

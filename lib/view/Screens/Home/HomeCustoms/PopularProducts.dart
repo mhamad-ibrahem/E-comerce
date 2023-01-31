@@ -1,60 +1,36 @@
-import 'package:ecommerce/controller/HomePageController.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce/Core/Constant/apiLinks.dart';
+import 'package:ecommerce/controller/Home/HomeController.dart';
+import 'package:ecommerce/data/model/Home/Items/ItemsModel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../Core/Constant/ScreenSize.dart';
 
-class PopularProductsListView extends StatelessWidget {
-  PopularProductsListView({
-    Key? key,
-  }) : super(key: key);
-  final HomePageController _homePageController = Get.find();
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 120,
-      width: double.infinity,
-      child: ListView.builder(
-        itemCount: 3,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, i) {
-          return Row(
-            children: [
-              PopularProductsObject(
-                image: _homePageController.popularProduct[i].image,
-                onTap: () => _homePageController.productDetailes(i),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-            ],
-          );
-        },
-      ),
-    );
-  }
-}
 
-class PopularProductsObject extends StatelessWidget {
+class PopularProductsObject extends GetView<HomeControllerImplement> {
   const PopularProductsObject({
     Key? key,
-    required this.image,
-    required this.onTap,
+    required this.itemsModel,
   }) : super(key: key);
-  final String image;
-  final void Function() onTap;
+  final ItemsModel itemsModel;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap :()=> controller.goToDetails(itemsModel),
       child: Container(
         height: 100,
         width: AppSize.screenWidth / 2.5,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color:AppColor. lightGrey,
-            image: DecorationImage(image: AssetImage(image))),
+          borderRadius: BorderRadius.circular(15),
+          color: AppColor.lightGrey,
+        ),
+        child: Hero(
+          tag: itemsModel.itemId!,
+          child: CachedNetworkImage(
+              imageUrl: "${AppLinks.itemsImageLink}/${itemsModel.itemImage!}",
+              fit: BoxFit.contain),
+        ),
       ),
     );
   }

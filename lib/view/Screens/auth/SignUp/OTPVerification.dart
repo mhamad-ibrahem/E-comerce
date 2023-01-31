@@ -1,11 +1,13 @@
 import 'package:ecommerce/Core/classes/HandilingData.dart';
-import 'package:ecommerce/Core/classes/statusRequest.dart';
 import 'package:ecommerce/controller/Auth/SignUp/vertificationController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../Core/Constant/Colors.dart';
+import '../../../../Core/Constant/ScreenSize.dart';
+import '../../../Widget/CustomButton.dart';
 import '../../../Widget/PageTitle.dart';
-import 'Custom/OTPRichText.dart';
 import '../../../Widget/OTPTextFormField.dart';
+import 'Custom/OTPRichText.dart';
 
 class OTPVerification extends StatelessWidget {
   OTPVerification({Key? key}) : super(key: key);
@@ -28,7 +30,7 @@ class OTPVerification extends StatelessWidget {
                     ),
                     const PageTitle(
                       title: 'OTP Verification',
-                      backArrowVisiablity: true,
+                      backArrowVisiablity: false,
                     ),
                     const SizedBox(
                       height: 30,
@@ -40,8 +42,9 @@ class OTPVerification extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
+                     OtpRichText(time: controller.times),
                     // Number and Expire Time Text
-                    const OtpRichText(),
+                    // OtpRichText(),
                     SizedBox(
                       height: MediaQuery.of(context).size.height / 6,
                     ),
@@ -58,19 +61,18 @@ class OTPVerification extends StatelessWidget {
                     SizedBox(
                       height: MediaQuery.of(context).size.height / 6,
                     ),
-                    // CustomButton(
-                    //   onTap: () => controller.otpValidate(),
-                    //   buttonBody: 'Continue',
-                    //   leftPadding: AppSize.screenWidth * 0.34,
-                    //   rightPadding: AppSize.screenWidth * 0.34,
-                    // ),
-                    // const SizedBox(height: 80),
-                    // const Text('Resend OTP Code',
-                    //     style: TextStyle(
-                    //         color: AppColor.deepGrey,
-                    //         fontSize: 15,
-                    //         fontFamily: 'muli',
-                    //         decoration: TextDecoration.underline)),
+                    CustomButton(
+                      onTap:controller.activitButton == false ?null :()=>controller.resendCode(),
+                      buttonBody: 'Resend',
+                      buttonWidth: AppSize.screenWidth * 0.75
+                    ),
+                    const SizedBox(height: 80),
+                    const Text('Resend OTP Code',
+                        style: TextStyle(
+                            color: AppColor.deepGrey,
+                            fontSize: 15,
+                            fontFamily: 'muli',
+                            decoration: TextDecoration.underline)),
                   ]),
                 ),
               ),

@@ -8,6 +8,6 @@ checkInternet()async{
     }
   }
   on SocketException catch(_){
-    return false;
+    return false; 
   }
 }

@@ -19,7 +19,7 @@ class OnBordingImplement extends OnBoardingController {
   moveToNextPage() {
     currentPage++;
     if (currentPage > onBoardingList.length - 1) {
-      services.box.put('onBording', '1');
+      services.box.put('step', '1');
       services.box.close();
       Get.offAllNamed(
         AppRoute.signIn,);

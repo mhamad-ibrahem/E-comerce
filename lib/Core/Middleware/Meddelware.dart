@@ -9,7 +9,10 @@ class MiddleWare extends GetMiddleware {
   Services services = Get.find();
   @override 
   RouteSettings? redirect(String? route){
-   if(services.box.get('onBording') == '1'){
+    if(services.box.get('step') == '2'){
+    return const RouteSettings(name: AppRoute.mainPage);
+   }
+   if(services.box.get('step') == '1'){
     return const RouteSettings(name: AppRoute.signIn);
    }
    return null;

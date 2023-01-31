@@ -15,12 +15,12 @@ class OnBordingBody extends StatelessWidget {
       ),
       Image.asset(
         image,
-        height:AppSize.screenHight * 0.3,
-        width:AppSize.screenWidth * 0.6,
+        height:AppSize.screenHight *0.4,
+        width:AppSize.screenWidth * 0.65,
         fit: BoxFit.fill,
       ),
-      const SizedBox(
-        height: 40,
+       SizedBox(
+        height: AppSize.screenHight *0.01,
       ),
     ]);
   }

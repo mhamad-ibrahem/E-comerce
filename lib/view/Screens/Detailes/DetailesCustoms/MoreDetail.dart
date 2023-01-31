@@ -5,36 +5,28 @@ import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
 
 class MoreDetail extends StatelessWidget {
-  const MoreDetail({
-    Key? key,
-    required detailesController,
-  })  : _detailesController = detailesController,
-        super(key: key);
-  final DetailesController _detailesController;
+  const MoreDetail({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DetailesController>(
-      builder: (controller) => Visibility(
-        visible: _detailesController.showDetailVisiablility,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 25),
-          child: MaterialButton(
-              onPressed: () => _detailesController.seeMoreDetail(),
-              child: Row(
-                children: [
-                  Text(
-                    'See More Detail',
-                    style: Theme.of(context).textTheme.caption,
-                  ),
-                  const Icon(
-                    Icons.arrow_forward_ios,
-                    color:AppColor. orange,
-                    size: 15,
-                  )
-                ],
-              )),
-        ),
-      ),
+    return GetBuilder<DetailesControllerImplement>(
+      builder: (controller) =>controller.itemsModel.itemDescriprion!.length >80? InkWell(
+          onTap: () {
+            controller.changeReadMore();
+          },
+          child: Row(
+            children: [
+              Text(
+               controller.isReadmore ? ' See Less Details' : 'See More Detail ',
+                style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.deepOrange),
+              ),
+              const Icon(
+                Icons.arrow_forward_ios,
+                color:AppColor.deepOrange,
+                size: 15,
+              )
+            ],
+          )):const SizedBox(),
     );
   }
 }

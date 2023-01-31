@@ -58,8 +58,7 @@ class CompleteProfile extends StatelessWidget {
                               CustomButton(
                                 onTap: () => controller.completevalidate(),
                                 buttonBody: 'Continue',
-                                leftPadding: AppSize.screenWidth * 0.34,
-                                rightPadding: AppSize.screenWidth * 0.34,
+                                buttonWidth: AppSize.screenWidth * 0.75
                               ),
                               const SizedBox(
                                 height: 30,

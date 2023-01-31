@@ -35,8 +35,7 @@ class CustomSuccess extends StatelessWidget {
               CustomButton(
                 onTap: function,
                 buttonBody: buttonText,
-                leftPadding: AppSize.screenWidth* 0.34,
-                rightPadding: AppSize.screenWidth* 0.34,
+                buttonWidth: AppSize.screenWidth * 0.75
               )
             ],
           ),

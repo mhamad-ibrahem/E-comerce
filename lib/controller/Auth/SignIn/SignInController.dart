@@ -1,10 +1,12 @@
 import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/Core/classes/statusRequest.dart';
+import 'package:ecommerce/Core/functions/checkInternetConnection.dart';
 import 'package:ecommerce/Core/functions/warningAuthDialog.dart';
+import 'package:ecommerce/Core/services/Services.dart';
 import 'package:ecommerce/data/DataSource/remote/Auth/loginData.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../Core/functions/handilingData.dart';
 
 abstract class SignInController extends GetxController {
@@ -23,6 +25,7 @@ class SignInImplement extends SignInController {
   late TextEditingController signinpassword;
   StatusRequest statusRequest = StatusRequest.none;
   LoginData loginData = LoginData(Get.find());
+  Services services = Get.find();
   @override
   void signInvalidate() async {
     var formData = signinState.currentState;
@@ -35,10 +38,20 @@ class SignInImplement extends SignInController {
       print(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success') {
-          // data.add(response['data']);
-          Get.offAllNamed(AppRoute.loginSuccess);
+          if (response['data']["user_approve"] == "1") {
+            services.box.put("username", response['data']['user_name']);
+            services.box.put("email", response['data']['user_email']);
+            services.box.put("phone", response['data']['user_number']);
+            services.box.put("location", response['data']['user_location']);
+            services.box.put("id", response['data']['user_id']);
+            services.box.put("step", "2");
+            Get.offAllNamed(AppRoute.loginSuccess);
+          } else {
+            Get.toNamed(AppRoute.signUpOtp,
+                arguments: {"email": signinEmail.text});
+          }
         } else {
-          warningAuthDialog( 'email or password is wrong');
+          warningAuthDialog('email or password is wrong');
           statusRequest = StatusRequest.faliure;
         }
       }
@@ -73,12 +86,54 @@ class SignInImplement extends SignInController {
     update();
   }
 
+  // getTokenMessage() async {
+  //   if (await checkInternet()) {
+  //     FirebaseMessaging.instance.getToken().then((value) {
+  //       print(value);
+  //       String? token = value;
+  //     FirebaseMessaging.onMessage.listen((event) {
+  //       // Get.snackbar("${event.notification}", "");
+  //       print("${event.notification}");
+  //     });
+  //     });
+  //   }
+  // }
+
+  initialMessage() async {
+    //work when app is closed
+    var message = await FirebaseMessaging.instance.getInitialMessage();
+    if (message != null) {
+      Get.toNamed(AppRoute.signUp);
+    }
+  }
+
   @override
   void onInit() {
+    initialMessage();
+    FirebaseMessaging.instance.getToken().then((value) {
+      //work when app is background state
+      print(value);
+      String? token = value;
+      FirebaseMessaging.onMessageOpenedApp.listen((event) {
+        Get.toNamed(AppRoute.signUp);
+      });
+      FirebaseMessaging.onMessage.listen((event) {
+        //work when app is open
+        Get.snackbar(
+            "${event.notification!.title}", "${event.notification!.body}");
+        print("${event.notification}");
+      });
+    });
     signinEmail = TextEditingController();
     signinpassword = TextEditingController();
 
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    services.box.close();
+    super.onClose();
   }
 
   @override

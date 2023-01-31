@@ -19,9 +19,10 @@ class OnBording extends GetView<OnBordingImplement> {
     Get.put(SignInImplement());
     return SafeArea(
       child: Scaffold(
-        body: Center(
+        body: Padding(
+          padding: const EdgeInsets.all(15),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            // mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
              const Text(
@@ -32,8 +33,9 @@ class OnBording extends GetView<OnBordingImplement> {
                     fontFamily: 'muli',
                     fontWeight: FontWeight.bold),
               ),
+              const SizedBox(height: 25),
               SizedBox(
-                height: AppSize.screenHight * 0.45,
+                height:  AppSize.screenHight *0.5,
                 child: PageView.builder(
                   onPageChanged: (index) {
                     _controller.onPageChanged(index);
@@ -45,12 +47,13 @@ class OnBording extends GetView<OnBordingImplement> {
                       image: onBoardingList[index].image),
                 ),
               ),
+              const Spacer(),
               const DotsIndicator(),
+              const Spacer(),
               CustomButton(
                 onTap: _controller.moveToNextPage,
-                buttonBody: 'Continue',
-                leftPadding: AppSize.screenWidth * 0.34,
-                rightPadding: AppSize.screenWidth * 0.34,
+                buttonBody: 'Continue', buttonWidth: AppSize.screenWidth * 0.68,
+                
               )
             ],
           ),
