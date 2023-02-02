@@ -11,13 +11,16 @@ abstract class DetailesController extends GetxController {
   changeRating(double rate);
   changeColor(Color selctedColor);
   changeReadMore();
+  
 }
 
 class DetailesControllerImplement extends DetailesController {
   int quantity = 0;
-  bool isInFavorite = false;
   double? itemRating;
   ItemsModel itemsModel = Get.arguments['itemModel'];
+  
+
+  // String isInFavorite = itemsModel.isFavorite!;
   bool isReadmore = false;
   List<Color> itemColor = [
     AppColor.lightGrey,
@@ -50,10 +53,11 @@ class DetailesControllerImplement extends DetailesController {
     print(itemRating);
     super.onInit();
   }
-
+ 
   @override
   addTofavorite() {
-    isInFavorite = !isInFavorite;
+    // isInFavorite = !isInFavorite;
+    itemsModel.isFavorite =='1'? itemsModel.isFavorite ='0': itemsModel.isFavorite ='1';
     update();
   }
 
@@ -75,4 +79,8 @@ class DetailesControllerImplement extends DetailesController {
     print(isReadmore);
     update();
   }
+  
+
+  
+
 }

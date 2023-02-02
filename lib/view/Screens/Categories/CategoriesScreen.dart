@@ -11,8 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CategoriesScreen extends GetView<CategoriesControllerImplement> {
-  const CategoriesScreen({super.key});
-
+  CategoriesScreen({super.key});
   @override
   Widget build(BuildContext context) {
     Get.put(CategoriesControllerImplement());
@@ -45,21 +44,22 @@ class CategoriesScreen extends GetView<CategoriesControllerImplement> {
                     height: 20,
                   ),
                   HandilingDataView(
-                      statusRequest:controller.statusRequest!,
+                      statusRequest: controller.statusRequest!,
                       widget: GridView.builder(
-                        itemCount: controller.itemsList.length,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 5.7 / 8,
-                        ),
-                        itemBuilder: (context, index) => CategoriesItemBody(
-                          itemsModel:
-                              ItemsModel.fromJson(controller.itemsList[index]),
-                        ),
-                      ))
+                          itemCount: controller.itemsList.length,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 5.7 / 8,
+                          ),
+                          itemBuilder: (context, index) {
+                            return CategoriesItemBody(
+                              itemsModel: ItemsModel.fromJson(
+                                  controller.itemsList[index]),
+                            );
+                          }))
                 ],
               ),
             ),

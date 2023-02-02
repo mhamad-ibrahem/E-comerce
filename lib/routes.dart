@@ -114,7 +114,7 @@ List<GetPage<dynamic>>? routes = [
       //categories
         GetPage(
       name: AppRoute.categories,
-      page: () =>const CategoriesScreen(),
+      page: () => CategoriesScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
 ];

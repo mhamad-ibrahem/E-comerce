@@ -1,5 +1,6 @@
 import 'package:ecommerce/Core/Constant/ScreenSize.dart';
 import 'package:ecommerce/Core/Constant/routes.dart';
+import 'package:ecommerce/Core/services/Services.dart';
 import 'package:ecommerce/data/DataSource/remote/categories/categoriesData.dart';
 import 'package:ecommerce/data/model/Home/Items/ItemsModel.dart';
 import 'package:get/get.dart';
@@ -21,6 +22,7 @@ class CategoriesControllerImplement extends CategoriesController {
   String? categoryId;
   CategoriesData categoriesData = CategoriesData(Get.find());
   StatusRequest? statusRequest;
+  Services services = Get.find();
 
   @override
   initialData() {
@@ -42,7 +44,7 @@ class CategoriesControllerImplement extends CategoriesController {
   getItemsData(catId) async {
     itemsList.clear();
     statusRequest = StatusRequest.loading;
-    var response = await categoriesData.getData(catId);
+    var response = await categoriesData.getData(catId,services.box.get("id"));
     statusRequest = handilingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {

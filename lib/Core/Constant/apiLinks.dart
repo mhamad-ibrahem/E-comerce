@@ -24,4 +24,7 @@ class AppLinks {
 
   // =================== Items ======================
   static const itemsLink = "$serverLink/items/items.php";
+  // ============== Favorite  ==================
+  static const addTofavorite = "$serverLink/favorite/addToFavorite.php";
+  static const removeFromfavorite = "$serverLink/favorite/removeFromfavorite.php";
 }

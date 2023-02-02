@@ -1,14 +1,13 @@
-
 import 'package:ecommerce/Core/Constant/apiLinks.dart';
 import 'package:ecommerce/Core/classes/Crud.dart';
 
-class CategoriesData{
-  
+class CategoriesData {
   Crud crud;
   CategoriesData(this.crud);
 
-  getData(String categoriesId)async{
-    var response = await crud.postData(AppLinks.itemsLink, {"categoryid":categoriesId.toString()});
-   return response.fold((l) => l, (r) => r);
+  getData(String categoriesId, String userid) async {
+    var response = await crud.postData(AppLinks.itemsLink,
+        {"categoryid": categoriesId.toString(), "userid": userid});
+    return response.fold((l) => l, (r) => r);
   }
 }
