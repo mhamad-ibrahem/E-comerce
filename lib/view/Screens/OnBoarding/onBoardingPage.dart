@@ -35,7 +35,7 @@ class OnBording extends GetView<OnBordingImplement> {
               ),
               const SizedBox(height: 25),
               SizedBox(
-                height:  AppSize.screenHight *0.5,
+                height:  AppSize.screenHight *0.54,
                 child: PageView.builder(
                   onPageChanged: (index) {
                     _controller.onPageChanged(index);
