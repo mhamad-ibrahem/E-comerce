@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
-import '../../../../controller/DetailesController.dart';
+import '../../../../controller/Auth/Details/DetailesController.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class FavouriteButton extends StatelessWidget {

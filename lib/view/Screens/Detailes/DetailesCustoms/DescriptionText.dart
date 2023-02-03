@@ -2,7 +2,7 @@ import 'package:ecommerce/Core/Constant/Colors.dart';
 import 'package:ecommerce/Core/Constant/ScreenSize.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../controller/DetailesController.dart';
+import '../../../../controller/Auth/Details/DetailesController.dart';
 import 'MoreDetail.dart';
 
 class DescriptionText extends GetView<DetailesControllerImplement> {

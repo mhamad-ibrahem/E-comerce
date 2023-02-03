@@ -1,4 +1,6 @@
 import 'package:ecommerce/Core/Constant/routes.dart';
+import 'package:ecommerce/Core/classes/HiveBox.dart';
+import 'package:ecommerce/Core/classes/HiveKeys.dart';
 import 'package:ecommerce/Core/classes/statusRequest.dart';
 import 'package:ecommerce/Core/functions/checkInternetConnection.dart';
 import 'package:ecommerce/Core/functions/warningAuthDialog.dart';
@@ -7,6 +9,7 @@ import 'package:ecommerce/data/DataSource/remote/Auth/loginData.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/adapters.dart';
 import '../../../Core/functions/handilingData.dart';
 
 abstract class SignInController extends GetxController {
@@ -16,9 +19,12 @@ abstract class SignInController extends GetxController {
   void changeObscure();
   void goToForgetPassword();
   void goToSignUp();
+  void openBox();
 }
 
 class SignInImplement extends SignInController {
+  Box? authBox;
+  Box? stepBox;
   bool remmemberMe = false;
   bool obscureVisability = true;
   late TextEditingController signinEmail;
@@ -39,12 +45,15 @@ class SignInImplement extends SignInController {
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success') {
           if (response['data']["user_approve"] == "1") {
-            services.box.put("username", response['data']['user_name']);
-            services.box.put("email", response['data']['user_email']);
-            services.box.put("phone", response['data']['user_number']);
-            services.box.put("location", response['data']['user_location']);
-            services.box.put("id", response['data']['user_id']);
-            services.box.put("step", "2");
+            authBox!
+                .put(HiveKeys.userNameKey, response['data']['user_name']);
+            authBox!.put(HiveKeys.emailKey, response['data']['user_email']);
+            authBox!
+                .put(HiveKeys.phoneKey, response['data']['user_number']);
+            authBox!
+                .put(HiveKeys.locationKey, response['data']['user_location']);
+            authBox!.put(HiveKeys.idKey, response['data']['user_id']);
+            stepBox!.put(HiveKeys.stepKey, "2");
             Get.offAllNamed(AppRoute.loginSuccess);
           } else {
             Get.toNamed(AppRoute.signUpOtp,
@@ -108,8 +117,15 @@ class SignInImplement extends SignInController {
   }
 
   @override
+  void openBox() async{
+  authBox= await Hive.openBox(HiveBox.authBox);
+  stepBox = await Hive.openBox(HiveBox.stepBox);
+  }
+
+  @override
   void onInit() {
     initialMessage();
+    openBox();
     FirebaseMessaging.instance.getToken().then((value) {
       //work when app is background state
       print(value);
@@ -132,7 +148,7 @@ class SignInImplement extends SignInController {
 
   @override
   void onClose() {
-    services.box.close();
+   
     super.onClose();
   }
 

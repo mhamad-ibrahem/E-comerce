@@ -23,11 +23,11 @@ class DetailesControllerImplement extends DetailesController {
   // String isInFavorite = itemsModel.isFavorite!;
   bool isReadmore = false;
   List<Color> itemColor = [
-    AppColor.lightGrey,
+    AppColor.orange,
     AppColor.cyan,
     AppColor.green,
     AppColor.darkPink,
-    AppColor.blue,
+    AppColor.bluePurpleM,
   ];
   DefaultCacheManager manager = DefaultCacheManager();
   Color? activeColor;

@@ -1,7 +1,10 @@
 import 'package:ecommerce/Core/Constant/routes.dart';
+import 'package:ecommerce/Core/classes/HiveBox.dart';
+import 'package:ecommerce/Core/classes/HiveKeys.dart';
 import 'package:ecommerce/data/DataSource/static/staticOnBording.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 
 import '../../Core/services/Services.dart';
 
@@ -12,15 +15,15 @@ abstract class OnBoardingController extends GetxController {
 }
 
 class OnBordingImplement extends OnBoardingController {
+  Box? stepBox;
   int currentPage = 0;
   late PageController pageController;
-  Services services = Get.find();
   @override
   moveToNextPage() {
     currentPage++;
     if (currentPage > onBoardingList.length - 1) {
-      services.box.put('step', '1');
-      services.box.close();
+      stepBox!.put(HiveKeys.stepKey, '1');
+      stepBox!.close();
       Get.offAllNamed(
         AppRoute.signIn,);
     } else {
@@ -34,9 +37,12 @@ class OnBordingImplement extends OnBoardingController {
     currentPage = index;
     update();
   }
-
+  openStepBox()async{
+   stepBox = await Hive.openBox(HiveBox.stepBox); 
+  }
   @override
   void onInit() {
+    openStepBox();
     pageController = PageController();
     super.onInit();
   }

@@ -22,7 +22,7 @@ TextStyle biggerBlackTextStyle() {
 TextStyle smallerBlackTextStyle() {
   return const TextStyle(
       color: AppColor.black,
-      fontSize: 15,
+      fontSize: 12,
       fontFamily: 'muli',
       fontWeight: FontWeight.w900);
 }

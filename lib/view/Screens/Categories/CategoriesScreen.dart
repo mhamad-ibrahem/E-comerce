@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CategoriesScreen extends GetView<CategoriesControllerImplement> {
-  CategoriesScreen({super.key});
+  const CategoriesScreen({super.key});
   @override
   Widget build(BuildContext context) {
     Get.put(CategoriesControllerImplement());
@@ -52,7 +52,7 @@ class CategoriesScreen extends GetView<CategoriesControllerImplement> {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            childAspectRatio: 5.7 / 8,
+                            childAspectRatio: 5 / 8,
                           ),
                           itemBuilder: (context, index) {
                             return CategoriesItemBody(

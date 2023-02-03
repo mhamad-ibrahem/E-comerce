@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../Core/Constant/ScreenSize.dart';
 import '../../../../Core/Constant/apiLinks.dart';
-import '../../../../controller/DetailesController.dart';
+import '../../../../controller/Auth/Details/DetailesController.dart';
 import '../DetailesCustoms/TopBar.dart';
 
 class TopColumn extends GetView<DetailesControllerImplement> {

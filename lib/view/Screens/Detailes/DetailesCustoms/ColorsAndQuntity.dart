@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../Core/Constant/ScreenSize.dart';
-import '../../../../controller/DetailesController.dart';
+import '../../../../controller/Auth/Details/DetailesController.dart';
 
 class ColorsAndQuntityContainer extends StatelessWidget {
   const ColorsAndQuntityContainer({super.key});

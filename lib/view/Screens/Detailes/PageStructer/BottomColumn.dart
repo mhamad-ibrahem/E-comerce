@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../Core/Constant/ScreenSize.dart';
-import '../../../../controller/DetailesController.dart';
+import '../../../../controller/Auth/Details/DetailesController.dart';
 import '../../../Widget/CustomButton.dart';
 import '../DetailesCustoms/ColorsAndQuntity.dart';
 import '../DetailesCustoms/DescriptionText.dart';
