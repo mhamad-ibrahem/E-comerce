@@ -12,83 +12,86 @@ class CategoriesItemBody extends GetView<CategoriesControllerImplement> {
   ItemsModel itemsModel;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        controller.goToDetails(itemsModel);
-      },
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        elevation: 5,
-        margin: const EdgeInsets.symmetric(horizontal: 10),
-        color: AppColor.white,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              height: 140,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(12),
+    return AspectRatio(
+      aspectRatio: 1/2,
+      child: GestureDetector(
+        onTap: () {
+          controller.goToDetails(itemsModel);
+        },
+        child: Card(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          elevation: 5,
+          margin: const EdgeInsets.symmetric(horizontal: 10),
+          color: AppColor.white,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                height: 140,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(12),
+                  ),
+                  color: AppColor.lightGrey,
                 ),
-                color: AppColor.lightGrey,
+                width: AppSize.screenWidth,
+                child: Hero(
+                  tag: itemsModel.itemId!,
+                  child: CachedNetworkImage(
+                      imageUrl:
+                          "${AppLinks.itemsImageLink}/${itemsModel.itemImage}"),
+                ),
               ),
-              width: AppSize.screenWidth,
-              child: Hero(
-                tag: itemsModel.itemId!,
-                child: CachedNetworkImage(
-                    imageUrl:
-                        "${AppLinks.itemsImageLink}/${itemsModel.itemImage}"),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    itemsModel.itemName!,
-                    style: Theme.of(context).textTheme.headline2,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    'Discount : ${itemsModel.itemDiscount!} %',
-                    style: Theme.of(context).textTheme.headline2,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("${itemsModel.itemPrice} \$",
-                            style: const TextStyle(
-                                color: AppColor.deepOrange,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w600)),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Row(
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5),
-                                child: Icon(
-                                  Icons.star,
-                                  color: AppColor.yellow,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      itemsModel.itemName!,
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      'Discount : ${itemsModel.itemDiscount!} %',
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("${itemsModel.itemPrice} \$",
+                              style: const TextStyle(
+                                  color: AppColor.deepOrange,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600)),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
+                            child: Row(
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 5),
+                                  child: Icon(
+                                    Icons.star,
+                                    color: AppColor.yellow,
+                                  ),
                                 ),
-                              ),
-                              Text(itemsModel.itemRate!,
-                                  style: Theme.of(context).textTheme.headline2),
-                            ],
-                          ),
-                        )
-                      ]),
-                ],
-              ),
-            )
-          ],
+                                Text(itemsModel.itemRate!,
+                                    style: Theme.of(context).textTheme.headline2),
+                              ],
+                            ),
+                          )
+                        ]),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

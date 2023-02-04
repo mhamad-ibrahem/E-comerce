@@ -52,7 +52,9 @@ class CategoriesScreen extends GetView<CategoriesControllerImplement> {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            childAspectRatio: 5 / 8,
+                            mainAxisSpacing: 10,
+                            mainAxisExtent: 260,
+                            childAspectRatio: 5 / 8 ,
                           ),
                           itemBuilder: (context, index) {
                             return CategoriesItemBody(
