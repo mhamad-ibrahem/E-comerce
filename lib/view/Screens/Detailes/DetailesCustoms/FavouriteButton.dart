@@ -1,9 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
-import '../../../../controller/Auth/Details/DetailesController.dart';
+import '../../../../controller/Details/DetailesController.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class FavouriteButton extends StatelessWidget {
@@ -30,28 +28,34 @@ class FavouriteButton extends StatelessWidget {
               onRatingUpdate: (rate) => controller.changeRating(rate)),
         ),
         InkWell(
-                  onTap: () {
-                  controller.addTofavorite();
-                  },
-                  child: Container(
-                    height: 50,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      color:controller.itemsModel.isFavorite =='1'
-                              ? AppColor.lightPink
-                              : AppColor.lightGrey,
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(40),
-                          bottomLeft: Radius.circular(40)),
-                    ),
-                    child: Icon(
-                      Icons.favorite,
-                      color:controller.itemsModel.isFavorite =='1'
-                              ? AppColor.red
-                              : AppColor.deepGrey,
-                    ),
-                  ),
-                )
+          onTap: () {
+            print('==================${controller.itemsModel.isFavorite}');
+            if (controller.itemsModel.isFavorite == "0") {
+              controller.addTofavorite(controller.itemsModel.itemId!);
+            } if(controller.itemsModel.isFavorite == "1") {
+              controller.removeFromfavorite(controller.itemsModel.itemId!);
+            }
+           
+          },
+          child: Container(
+            height: 50,
+            width: 70,
+            decoration: BoxDecoration(
+              color: controller.itemsModel.isFavorite == '1'
+                  ? AppColor.lightPink
+                  : AppColor.lightGrey,
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  bottomLeft: Radius.circular(40)),
+            ),
+            child: Icon(
+              Icons.favorite,
+              color: controller.itemsModel.isFavorite == '1'
+                  ? AppColor.red
+                  : AppColor.deepGrey,
+            ),
+          ),
+        )
       ]),
     );
   }

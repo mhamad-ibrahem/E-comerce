@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../Core/Constant/ScreenSize.dart';
-import '../../../../controller/Auth/Details/DetailesController.dart';
+import '../../../../controller/Details/DetailesController.dart';
 
 class ColorsAndQuntityContainer extends StatelessWidget {
   const ColorsAndQuntityContainer({super.key});
@@ -50,7 +50,7 @@ class ColorsAndQuntityContainer extends StatelessWidget {
                     width: 10,
                   ),
                   Text(
-                    '${controller.itemsModel.itemQuantity}',
+                    '${controller.countItems}',
                     style: blackTextStyle(),
                   ),
                   const SizedBox(

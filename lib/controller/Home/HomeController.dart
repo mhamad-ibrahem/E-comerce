@@ -1,5 +1,7 @@
+import 'package:ecommerce/Core/Constant/Colors.dart';
 import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/data/DataSource/remote/Home/HomeData.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import '../../Core/classes/HiveBox.dart';
@@ -15,17 +17,25 @@ abstract class HomeController extends GetxController {
 }
 
 class HomeControllerImplement extends HomeController {
-  Box? authBox;
+  Box authBox = Hive.box(HiveBox.authBox);
   HomeData homeData = HomeData(Get.find());
   List categoriesList = [];
   List itemsList = [];
   List popularItems = [];
   StatusRequest? statusRequest;
-   @override
+  @override
   openAuthBox() async {
     authBox = await Hive.openBox(HiveBox.authBox);
     print(Hive.openBox(HiveBox.authBox));
   }
+   initialMessage() async {
+    //work when app is closed
+    var message = await FirebaseMessaging.instance.getInitialMessage();
+    if (message != null) {
+      Get.toNamed(AppRoute.signUp);
+    }
+  }
+
   @override
   getData() async {
     statusRequest = StatusRequest.loading;
@@ -49,6 +59,22 @@ class HomeControllerImplement extends HomeController {
   @override
   void onInit() {
     getData();
+    initialMessage();
+    FirebaseMessaging.instance.getToken().then((value) {
+      //work when app is background state
+      print(value);
+      String? token = value;
+      FirebaseMessaging.onMessageOpenedApp.listen((event) {
+        Get.toNamed(AppRoute.signUp);
+      });
+      FirebaseMessaging.onMessage.listen((event) {
+        //work when app is open
+        Get.snackbar(
+          backgroundColor: AppColor.lightGrey,
+            "${event.notification!.title}", "${event.notification!.body}");
+        print("${event.notification}");
+      });
+    });
     openAuthBox();
     super.onInit();
   }
@@ -56,7 +82,7 @@ class HomeControllerImplement extends HomeController {
   @override
   goToCategoriesPage(categories, selcetedCategorie, categoryId) {
     Get.toNamed(AppRoute.categories, arguments: {
-      "authBox":authBox,
+      "authBox": authBox,
       "categories": categories,
       "selcetedCategories": selcetedCategorie,
       "categoryId": categoryId
@@ -66,6 +92,7 @@ class HomeControllerImplement extends HomeController {
   @override
   @override
   goToDetails(itemsModel) {
-    Get.toNamed(AppRoute.details, arguments: {"itemModel": itemsModel});
+    Get.toNamed(AppRoute.details,
+        arguments: {"itemModel": itemsModel});
   }
 }

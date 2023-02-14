@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'Core/Constant/Colors.dart';
-import 'controller/HomePageController.dart';
+import 'controller/MainController.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({Key? key}) : super(key: key);
@@ -22,17 +22,17 @@ class MainPage extends StatelessWidget {
             items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.storefront_outlined),
-                label: '.',
+                label: 'Home',
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.favorite_outline_outlined), label: '.'),
+                  icon: Icon(Icons.favorite_outline_outlined), label: 'Favorite'),
               BottomNavigationBarItem(
                   icon: Icon(
                     Icons.chat_outlined,
                   ),
-                  label: '.'),
+                  label: 'Chat'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person_outline_outlined), label: '.')
+                  icon: Icon(Icons.person_outline_outlined), label: 'Profile')
             ]),
       ),
       body: GetBuilder<HomePageController>(

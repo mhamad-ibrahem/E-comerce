@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../Core/Constant/ScreenSize.dart';
-import '../../../../controller/Auth/Details/DetailesController.dart';
+import '../../../../controller/Details/DetailesController.dart';
 import '../../../Widget/CustomButton.dart';
 import '../DetailesCustoms/ColorsAndQuntity.dart';
 import '../DetailesCustoms/DescriptionText.dart';
@@ -44,8 +44,10 @@ class BottomColumn extends GetView<DetailesControllerImplement> {
             ),
             Center(
               child: CustomButton(
-                onTap: () {},
-                buttonBody: 'Add to Cart',
+                onTap: () {
+                  controller.goToCart();
+                },
+                buttonBody: 'Go to cart',
                 buttonWidth: AppSize.screenWidth * 0.75,
               ),
             ),
