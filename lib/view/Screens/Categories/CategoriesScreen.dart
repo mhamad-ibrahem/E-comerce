@@ -7,6 +7,7 @@ import 'package:ecommerce/data/model/Home/Items/ItemsModel.dart';
 import 'package:ecommerce/view/Screens/Categories/Custom/CategoriesItemsBody.dart';
 import 'package:ecommerce/view/Screens/Categories/Custom/CategoriesNameBody.dart';
 import 'package:ecommerce/view/Screens/Home/HomeCustoms/HomePageHeaders.dart';
+import 'package:ecommerce/view/Screens/Home/HomeCustoms/ItemSearchProduct.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,11 +25,22 @@ class CategoriesScreen extends GetView<CategoriesControllerImplement> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const HomePageHeaders(),
+                    HomePageHeaders(onChanged: (val){
+            controller.checkSearch(val);
+           },onSearch: (){
+            controller.onSearchItem();
+           },search: controller.search),
                   const SizedBox(
                     height: 30,
                   ),
-                  SizedBox(
+                  GetBuilder<CategoriesControllerImplement>(
+            builder: (controller) => HandilingDataView(
+              statusRequest: controller.statusRequest!,
+              widget:
+                 controller.isSearch==false?
+                 Column(
+                  children: [
+                     SizedBox(
                     width: AppSize.screenWidth,
                     height: 50,
                     child: ListView.builder(
@@ -62,7 +74,10 @@ class CategoriesScreen extends GetView<CategoriesControllerImplement> {
                                   controller.itemsList[index]),
                             );
                           }))
-                ],
+                  ], 
+                 ) :const ItemSearchProduct() 
+              ))
+              ],
               ),
             ),
           ),
@@ -71,3 +86,4 @@ class CategoriesScreen extends GetView<CategoriesControllerImplement> {
     );
   }
 }
+  

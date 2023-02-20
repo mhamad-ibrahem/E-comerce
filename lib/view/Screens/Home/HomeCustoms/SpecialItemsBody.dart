@@ -1,16 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/Core/Constant/apiLinks.dart';
+import 'package:ecommerce/controller/Home/HomeController.dart';
 import 'package:ecommerce/data/model/Home/Items/ItemsModel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../Core/Constant/Colors.dart';
 
 class SpecialOpacityContainer extends StatelessWidget {
   const SpecialOpacityContainer({
+    required this.image,
+    required this.name,
+    required this.description,
     Key? key,
-    required this.itemsModel,
   }) : super(key: key);
-  final ItemsModel itemsModel;
+  final String image;
+  final String name;
+  final String description;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -24,7 +30,7 @@ class SpecialOpacityContainer extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             child: CachedNetworkImage(
-              imageUrl: "${AppLinks.itemsImageLink}/${itemsModel.itemImage}",
+              imageUrl: "${AppLinks.itemsImageLink}/${image}",
               fit: BoxFit.fill,
             ),
           ),
@@ -50,14 +56,14 @@ class SpecialOpacityContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    itemsModel.itemName!,
+                    name,
                     style: const TextStyle(
                         color: AppColor.white,
                         fontSize: 20,
                         fontFamily: 'muli',
                         fontWeight: FontWeight.w900),
                   ),
-                  Text(itemsModel.itemDescriprion!,
+                  Text(description,
                       style: const TextStyle(
                           color: AppColor.white,
                           fontSize: 15,

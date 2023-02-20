@@ -4,8 +4,6 @@ import 'package:ecommerce/view/Screens/Home/HomeCustoms/SpecialItemsBody.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../data/model/Home/Items/ItemsModel.dart';
-
 
 class BrandsListView extends StatelessWidget {
   const BrandsListView({
@@ -22,8 +20,13 @@ class BrandsListView extends StatelessWidget {
               separatorBuilder: (context, index) =>const SizedBox(width: 15,),
                 scrollDirection: Axis.horizontal,
                 itemCount: controller.itemsList.length,
-                itemBuilder: (context, index) => SpecialOpacityContainer(itemsModel: ItemsModel.fromJson(controller.itemsList[index]),
-                    )))));
+                itemBuilder: (context, index) => SpecialOpacityContainer( image: controller.itemsList[index].itemImage!,
+                name:controller.itemsList[index].itemName! ,
+                description: controller.itemsList[index].itemDescriprion!,
+                    ))
+                    )
+                    )
+                    );
   }
 }
 

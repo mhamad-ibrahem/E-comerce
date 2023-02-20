@@ -56,10 +56,6 @@ class ForgotPassword extends StatelessWidget {
                                   label: 'Email',
                                   hint: 'Enter your email',
                                   obscure: false,
-                                  errorVal: 'Email',
-                                  vallengthError: 10,
-                                  valreturn:
-                                      'Email can\'t be less than 10 characters',
                                   textEditingController:
                                       controller.forgotPasswordemail,
                                   suffixIcon: null,

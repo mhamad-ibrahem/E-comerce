@@ -17,9 +17,6 @@ class CompleteProfileTextFields extends GetView<SignUpImplement> {
             label: ' Name  ',
             inputType: TextInputType.name,
             obscure: false,
-            errorVal: ' Name',
-            vallengthError: 2,
-            valreturn: ' Name can\'t be less than 2 characters',
             textEditingController: controller.name,
             suffixIcon: null,
             validator: (value) {
@@ -36,9 +33,6 @@ class CompleteProfileTextFields extends GetView<SignUpImplement> {
             hint: 'Enter your phone number',
             inputType: TextInputType.number,
             obscure: false,
-            errorVal: 'Phone Number',
-            vallengthError: 10,
-            valreturn: 'Phone Number can\'t be less than 10 characters',
             textEditingController: controller.phoneNumber,
             suffixIcon: null,
             validator: (value) {
@@ -54,9 +48,6 @@ class CompleteProfileTextFields extends GetView<SignUpImplement> {
             hint: 'Enter your address',
             inputType: TextInputType.streetAddress,
             obscure: false,
-            errorVal: 'Address',
-            vallengthError: 10,
-            valreturn: 'Address can\'t be less than 10 characters',
             textEditingController: controller.address,
             suffixIcon: null,
             validator: (value) {

@@ -63,7 +63,7 @@ class CategoriesItemBody extends GetView<CategoriesControllerImplement> {
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("${itemsModel.itemPrice} \$",
+                        Text("${itemsModel.itemfinalPrice} \$",
                             style: const TextStyle(
                                 color: AppColor.deepOrange,
                                 fontSize: 20,

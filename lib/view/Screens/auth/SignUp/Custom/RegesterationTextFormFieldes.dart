@@ -19,9 +19,6 @@ class RegesterationTextFormFieldes extends StatelessWidget {
               hint: 'Enter your email',
               label: '  Email  ',
               obscure: false,
-              errorVal: 'Email',
-              vallengthError: 10,
-              valreturn: 'Email can\'t be less than 10 characters',
               textEditingController: controller.signUpEmail,
               suffixIcon: null,
               validator: (value) {
@@ -35,9 +32,6 @@ class RegesterationTextFormFieldes extends StatelessWidget {
             label: '  Password  ',
             hint: 'Enter your Password',
             obscure: controller.passwordObscure,
-            errorVal: 'Password',
-            vallengthError: 6,
-            valreturn: 'Password can\'t be less than 6 characters',
             validator: (value) {
               return validation(value!, 6, 20, '');
             },
@@ -68,9 +62,6 @@ class RegesterationTextFormFieldes extends StatelessWidget {
               print(controller.signUppassword.text);
               return confirmValidate( value!,controller.signUppassword.text);
             },
-            errorVal: 'Password',
-            vallengthError: 6,
-            valreturn: 'Password can\'t be less than 6 characters',
             textEditingController: controller.signUppasswordConfirm,
             suffixIcon: IconButton(
               icon: controller.confirmPasswordObscure == false

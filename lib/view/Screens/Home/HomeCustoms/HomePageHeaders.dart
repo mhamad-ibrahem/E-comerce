@@ -1,14 +1,21 @@
 import 'package:ecommerce/Core/Constant/routes.dart';
+import 'package:ecommerce/controller/Home/HomeController.dart';
+import 'package:ecommerce/view/Widget/CustomTextFormField.dart';
 import 'package:ecommerce/view/Widget/RedDot.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
+import 'package:get/get.dart';
 
 class HomePageHeaders extends StatelessWidget {
   const HomePageHeaders({
     Key? key,
+    required this.onChanged,
+    required this.search,
+    required this.onSearch,
   }) : super(key: key);
-
+  final void Function(String)? onChanged;
+  final TextEditingController search;
+  final void Function()? onSearch;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,30 +24,42 @@ class HomePageHeaders extends StatelessWidget {
         Expanded(
           flex: 3,
           child: Container(
-            decoration: BoxDecoration(
-                color: AppColor.lightGrey, borderRadius: BorderRadius.circular(10)),
-            child: TextField(
-              decoration: InputDecoration(
-                  hintText: 'Search product',
+              decoration: BoxDecoration(
+                  color: AppColor.lightGrey,
+                  borderRadius: BorderRadius.circular(10)),
+              child: TextFormField(
+                onChanged: onChanged,
+                controller: search,
+                decoration: InputDecoration(
+                  hintText: "Search Product",
+                  fillColor: AppColor.black,
                   hintStyle: Theme.of(context).textTheme.headline1,
-                  prefixIcon: const Icon(
-                    Icons.search,
-                    color: AppColor.deepGrey,
-                  ),
-                  border: InputBorder.none),
-            ),
-          ),
+                  border: InputBorder.none,
+                  prefixIcon: IconButton(
+                      onPressed: onSearch,
+                      icon: const Icon(
+                        Icons.search,
+                        color: AppColor.deepGrey,
+                      )),
+                ),
+                style: const TextStyle(
+                    color: AppColor.black,
+                    fontSize: 15,
+                    fontFamily: 'muli',
+                    fontWeight: FontWeight.bold),
+                cursorColor: AppColor.deepGrey,
+              )),
         ),
         Expanded(
           flex: 1,
           child: CircleAvatar(
-            backgroundColor:AppColor. lightGrey,
+            backgroundColor: AppColor.lightGrey,
             radius: 25,
             child: IconButton(
-                onPressed: () => Get.toNamed( AppRoute.cart),
+                onPressed: () => Get.toNamed(AppRoute.cart),
                 icon: const Icon(
                   Icons.shopping_cart_outlined,
-                  color:AppColor. deepGrey,
+                  color: AppColor.deepGrey,
                 )),
           ),
         ),
@@ -49,16 +68,16 @@ class HomePageHeaders extends StatelessWidget {
             child: Stack(
               children: [
                 CircleAvatar(
-                  backgroundColor:AppColor. lightGrey,
+                  backgroundColor: AppColor.lightGrey,
                   radius: 25,
                   child: IconButton(
                       onPressed: () {},
                       icon: const Icon(
                         Icons.notifications_outlined,
-                        color:AppColor. deepGrey,
+                        color: AppColor.deepGrey,
                       )),
                 ),
-                redDot()
+                RedDot()
               ],
             ))
       ],

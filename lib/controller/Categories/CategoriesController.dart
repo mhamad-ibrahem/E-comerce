@@ -3,6 +3,7 @@ import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/Core/classes/HiveBox.dart';
 import 'package:ecommerce/Core/classes/HiveKeys.dart';
 import 'package:ecommerce/Core/services/Services.dart';
+import 'package:ecommerce/controller/Search/searchController.dart';
 import 'package:ecommerce/data/DataSource/remote/categories/categoriesData.dart';
 import 'package:ecommerce/data/model/Home/Items/ItemsModel.dart';
 import 'package:get/get.dart';
@@ -11,7 +12,7 @@ import 'package:hive_flutter/adapters.dart';
 import '../../Core/classes/statusRequest.dart';
 import '../../Core/functions/handilingData.dart';
 
-abstract class CategoriesController extends GetxController {
+abstract class CategoriesController extends SearchController {
   initialData();
   changeSelectedCategory(int selcted, String catid);
   getItemsData(String catId,String userId);
@@ -25,7 +26,6 @@ class CategoriesControllerImplement extends CategoriesController {
   List itemsList = [];
   String? categoryId;
   CategoriesData categoriesData = CategoriesData(Get.find());
-  StatusRequest? statusRequest;
   Services services = Get.find();
  
 

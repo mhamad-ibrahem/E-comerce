@@ -37,4 +37,6 @@ class AppLinks {
   static const removeCartData = "$cartLink/remove.php";
   static const addCartData = "$cartLink/add.php";
   static const getCountItemCartData = "$cartLink/getCountItem.php";
+  // ========================= search ===============
+  static const searchLink= "$serverLink/items/searchItem.php";
 }

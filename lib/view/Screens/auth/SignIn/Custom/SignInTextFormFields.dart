@@ -19,9 +19,6 @@ class SignInTextFormFields extends StatelessWidget {
                     label: '  Email  ',
                     inputType: TextInputType.emailAddress,
                     obscure: false,
-                    errorVal: 'Email',
-                    vallengthError: 10,
-                    valreturn: 'Email can\'t be less than 10 characters',
                     textEditingController: controller.signinEmail,
                     suffixIcon: null,
                     validator: (value) {
@@ -34,9 +31,6 @@ class SignInTextFormFields extends StatelessWidget {
                     hint: 'Enter Your Password',
                     inputType: TextInputType.visiblePassword,
                     obscure: controller.obscureVisability,
-                    errorVal: 'Password',
-                    vallengthError: 6,
-                    valreturn: 'Password can\'t be less than 6 characters',
                     textEditingController: controller.signinpassword,
                     suffixIcon: IconButton(
                       icon: controller.obscureVisability == false

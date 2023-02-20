@@ -29,13 +29,12 @@ abstract class DetailesController extends GetxController {
 class DetailesControllerImplement extends DetailesController {
   Box authBox = Hive.box(HiveBox.authBox);
   double? itemRating;
-  int countItems =0;
+  int countItems = 0;
   ItemsModel itemsModel = Get.arguments['itemModel'];
   FavoriteData favoriteData = FavoriteData(Get.find());
   StatusRequest? statusRequest;
   Services services = Get.find();
   MyCartData cartData = MyCartData(Get.find());
-  CartController cartController = Get.put(CartController());
   // String isInFavorite = itemsModel.isFavorite!;
   bool isReadmore = false;
   List<Color> itemColor = [
@@ -58,25 +57,26 @@ class DetailesControllerImplement extends DetailesController {
   }
 
   @override
-  initialData() async{
-   statusRequest= StatusRequest.loading;   
-   countItems = await cartController.getItemCount(itemsModel.itemId!);
-   statusRequest= StatusRequest.success;
-   update();
+  initialData() async {
+    statusRequest = StatusRequest.loading;
+    countItems = await getItemCount(itemsModel.itemId!);
+    statusRequest = StatusRequest.success;
+    update();
   }
-   @override
+
+  @override
   decreaseQuantity() {
-    if(countItems >0){
+    if (countItems > 0) {
       removeFromCart(itemsModel.itemId!);
-      countItems --;
+      countItems--;
       update();
     }
   }
-  
+
   @override
   increaseQuantity() {
     addToCart(itemsModel.itemId!);
-    countItems ++;
+    countItems++;
     update();
   }
 
@@ -145,6 +145,7 @@ class DetailesControllerImplement extends DetailesController {
 
   addToCart(String itemId) async {
     statusRequest = StatusRequest.loading;
+    update();
     var response =
         await cartData.addCartData(authBox.get(HiveKeys.idKey), itemId);
     statusRequest = handilingData(response);
@@ -161,6 +162,7 @@ class DetailesControllerImplement extends DetailesController {
 
   removeFromCart(String itemId) async {
     statusRequest = StatusRequest.loading;
+    update();
     var response =
         await cartData.deleteCartData(authBox.get(HiveKeys.idKey), itemId);
     statusRequest = handilingData(response);
@@ -173,9 +175,28 @@ class DetailesControllerImplement extends DetailesController {
     }
     update();
   }
-  
+
+  getItemCount(String itemId) async {
+    statusRequest = StatusRequest.loading;
+    var response =
+        await cartData.getCountCartData(authBox.get(HiveKeys.idKey), itemId);
+    statusRequest = handilingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
+        countItems = 0;
+        countItems = int.parse(response['data']);
+        print('==============================');
+        print(countItems);
+        return countItems;
+      } else {
+        statusRequest = StatusRequest.faliure;
+      }
+    }
+    update();
+  }
+
   @override
   goToCart() {
     Get.toNamed(AppRoute.cart);
-  }  
+  }
 }

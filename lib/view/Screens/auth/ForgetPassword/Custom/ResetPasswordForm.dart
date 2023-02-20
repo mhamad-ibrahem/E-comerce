@@ -19,9 +19,6 @@ class ResetPasswordForm extends StatelessWidget {
               hint: 'Enter Your Password',
               inputType: TextInputType.visiblePassword,
               obscure: controller.obscureVisability,
-              errorVal: 'Password',
-              vallengthError: 6,
-              valreturn: 'Password can\'t be less than 6 characters',
               textEditingController: controller.password,
               suffixIcon: IconButton(
                 icon: controller.obscureVisability == false
@@ -44,9 +41,6 @@ class ResetPasswordForm extends StatelessWidget {
               hint: 'confirm password',
               label: '  Re-Enter Password  ',
               obscure: controller.confirmPasswordObscure,
-              errorVal: 'password',
-              vallengthError: 10,
-              valreturn: 'Email can\'t be less than 10 characters',
               textEditingController: controller.confirmPassword,
               suffixIcon: IconButton(
                 icon: controller.confirmPasswordObscure == false

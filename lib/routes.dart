@@ -9,7 +9,10 @@ import 'package:ecommerce/view/Screens/Favourite/Favourite.dart';
 import 'package:ecommerce/view/Screens/Home/HomePage.dart';
 import 'package:ecommerce/view/Screens/OnBoarding/onBoardingPage.dart';
 import 'package:ecommerce/view/Screens/Profile/Profile.dart';
-import 'package:ecommerce/view/Screens/Profile/Settings/SettingsPage.dart';
+import 'package:ecommerce/view/Screens/Profile/ProfileChildren/Account/accountScreen.dart';
+import 'package:ecommerce/view/Screens/Profile/ProfileChildren/HelpCenter/HelpCenterScreen.dart';
+import 'package:ecommerce/view/Screens/Profile/ProfileChildren/Notification/NotificationScreen.dart';
+import 'package:ecommerce/view/Screens/Profile/ProfileChildren/Settings/SettingsPage.dart';
 import 'package:ecommerce/view/Screens/auth/ForgetPassword/ForgotPassword.dart';
 import 'package:ecommerce/view/Screens/auth/ForgetPassword/ResetPassword.dart';
 import 'package:ecommerce/view/Screens/auth/ForgetPassword/Vertification.dart';
@@ -76,7 +79,7 @@ List<GetPage<dynamic>>? routes = [
       transitionDuration: const Duration(milliseconds: 700)),
   GetPage(
       name: AppRoute.home,
-      page: () => HomePage(),
+      page: () => const HomePage(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
       GetPage(
@@ -114,7 +117,22 @@ List<GetPage<dynamic>>? routes = [
       //categories
         GetPage(
       name: AppRoute.categories,
-      page: () => CategoriesScreen(),
+      page: () => const CategoriesScreen(),
+      transition: Transition.fade,
+      transitionDuration: const Duration(milliseconds: 700)),
+      GetPage(
+      name: AppRoute.account,
+      page: () => const AccountScreen(),
+      transition: Transition.fade,
+      transitionDuration: const Duration(milliseconds: 700)),
+      GetPage(
+      name: AppRoute.helpCenter,
+      page: () => const HelpCenterScreen(),
+      transition: Transition.fade,
+      transitionDuration: const Duration(milliseconds: 700)),
+      GetPage(
+      name: AppRoute.notifications,
+      page: () => const NotificationsScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
 ];

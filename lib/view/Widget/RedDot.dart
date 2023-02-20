@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-Widget redDot() {
+Widget RedDot() {
   return Positioned(
     left: 35,
     top: 5,

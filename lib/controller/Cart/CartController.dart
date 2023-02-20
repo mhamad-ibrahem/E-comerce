@@ -15,26 +15,41 @@ class CartController extends GetxController {
   StatusRequest? statusRequest;
   Services services = Get.find();
   int? totoalCountItems ;
-  int countItems =0;
-  double? totalPrice;
+  int countItems = 0;
+  double totalPrice =0.0;
   void onInit() {
     getData();
     super.onInit();
   }
 
+  resetVariableValue() {
+    totalPrice = 0.0;
+    totoalCountItems = 0;
+    cartDataList.clear();
+  }
+
+  refreshView() {
+    resetVariableValue();
+    getData();
+  }
+
   getData() async {
     statusRequest = StatusRequest.loading;
+    update();
     var response = await cartData.viewCartData(authBox.get(HiveKeys.idKey));
     statusRequest = handilingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
-        List responseData = response["dataCart"];
-        cartDataList.addAll(responseData.map((e) => CartModel.fromJson(e)));
+       if(response["dataCart"]['status']=='success'){
+         List responseData = response["dataCart"]['data'];
         Map dataResponseCountPrice = response['countPrice'];
-        totoalCountItems=int.parse(dataResponseCountPrice['totalCount']);
-        totalPrice=double.parse(dataResponseCountPrice['totalPrice']);
+        cartDataList.clear();
+        cartDataList.addAll(responseData.map((e) => CartModel.fromJson(e)));
+        totoalCountItems = int.parse(dataResponseCountPrice['totalCount']);
+        totalPrice = double.parse(dataResponseCountPrice['totalPrice']);
         print('==============================');
         print(cartDataList);
+       }
       } else {
         statusRequest = StatusRequest.faliure;
       }
@@ -44,6 +59,7 @@ class CartController extends GetxController {
 
   addToCart(String itemId) async {
     statusRequest = StatusRequest.loading;
+    update();
     var response =
         await cartData.addCartData(authBox.get(HiveKeys.idKey), itemId);
     statusRequest = handilingData(response);
@@ -57,8 +73,10 @@ class CartController extends GetxController {
     }
     update();
   }
-  removeFromCart(String itemId)async{
+
+  removeFromCart(String itemId) async {
     statusRequest = StatusRequest.loading;
+    update();
     var response =
         await cartData.deleteCartData(authBox.get(HiveKeys.idKey), itemId);
     statusRequest = handilingData(response);
@@ -73,22 +91,4 @@ class CartController extends GetxController {
     update();
   }
 
-  getItemCount(String itemId) async {
-    statusRequest = StatusRequest.loading;
-    var response =
-        await cartData.getCountCartData(authBox.get(HiveKeys.idKey), itemId);
-    statusRequest = handilingData(response);
-    if (StatusRequest.success == statusRequest) {
-      if (response['status'] == 'success') {
-        countItems = 0;
-        countItems=int.parse(response['data']);
-        print('==============================');
-        print(countItems);
-        return countItems;
-      } else {
-        statusRequest = StatusRequest.faliure;
-      }
-    }
-    update();
-  }
 }

@@ -23,6 +23,10 @@ class AppRoute {
   static const String cart = '/Cart';
   //profile 
   static const String settings = '/Settings';
+  static const String notifications = '/notifications';
+  static const String account = '/account';
+  static const String helpCenter = '/helpCenter';
+
   //categories
     static const String categories= '/categories';
 }

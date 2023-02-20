@@ -27,14 +27,22 @@ class TopColumn extends GetView<DetailesControllerImplement> {
                 height: 200,
                 width: AppSize.screenWidth / 2,
                 child: GetBuilder<DetailesControllerImplement>(
-                  builder:(controller)=> ColorFiltered(
-                    colorFilter: ColorFilter.mode(controller.activeColor!,BlendMode.hue),
-                    child: Container(
+                  builder:(controller)=> Material(
+                      shape: Border.all(color:AppColor.veryLightGrey ,width: 8),
+                    child: Material(
+                      shape: Border.all(color:AppColor.veryLightGrey ,width: 8),
                       color: AppColor.veryLightGrey,
-                      child: Hero(
-                         tag: controller.itemsModel.itemId!,
-                        child: CachedNetworkImage(
-                          imageUrl:"${AppLinks.itemsImageLink}/${controller.itemsModel.itemImage}",fit: BoxFit.contain,
+                      child: ColorFiltered(
+                        colorFilter: ColorFilter.mode(controller.activeColor!,BlendMode.hue),
+                        child: Container(
+                          color: AppColor.veryLightGrey,
+                          padding: const EdgeInsets.all(10),
+                          child: Hero(
+                             tag: controller.itemsModel.itemId!,
+                            child: CachedNetworkImage(
+                              imageUrl:"${AppLinks.itemsImageLink}/${controller.itemsModel.itemImage}",fit: BoxFit.contain,
+                            ),
+                          ),
                         ),
                       ),
                     ),

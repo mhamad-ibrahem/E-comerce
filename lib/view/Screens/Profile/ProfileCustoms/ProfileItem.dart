@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../Core/Constant/Colors.dart';
-import '../../../../Core/Theme/Themes.dart';
+
 
 class ProfileItem extends StatelessWidget {
   const ProfileItem({
@@ -17,7 +17,7 @@ class ProfileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.only(left: 20, right: 20),
-        child: InkWell(
+        child: GestureDetector(
           onTap: onTap,
           child: Card(
             shape:

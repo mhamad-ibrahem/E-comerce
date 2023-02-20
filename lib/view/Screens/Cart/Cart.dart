@@ -5,7 +5,6 @@ import 'package:ecommerce/view/Widget/PageTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../Core/Constant/ScreenSize.dart';
-import '../../../Core/Constant/imageAsset.dart';
 import '../../../controller/Cart/CartController.dart';
 import 'CartCustoms/BottomSizedBox.dart';
 
@@ -41,9 +40,16 @@ class Cart extends StatelessWidget {
                           itemBuilder: (context, index) => CartBody(
                             image:
                                 "${AppLinks.itemsImageLink}/${controller.cartDataList[index].itemImage}",
-                            price: controller.cartDataList[index].item_Price!,
+                            price: controller.cartDataList[index].itemPrice!,
                             quantity: controller.cartDataList[index].countItems!,
-                            title: controller.cartDataList[index].itemName!,
+                            title: controller.cartDataList[index].itemName!, onDecrease: ()async { 
+                              await controller.removeFromCart(controller.cartDataList[index].itemId!);
+                              controller.refreshView();
+                             },
+                             onIncrease:()async{
+                               await controller.addToCart(controller.cartDataList[index].itemId!);
+                              controller.refreshView();
+                             }, categoty: 'phone' ,
                           ),
                         ),
                       ),

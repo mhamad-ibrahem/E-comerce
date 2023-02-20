@@ -20,7 +20,6 @@ class CartModel {
           this.itemQuantity,
           this.itemCategories,
           this.itemRate,
-          this.item_Price,
     });
 
     String? itemPrice;
@@ -42,11 +41,10 @@ class CartModel {
     String? itemQuantity;
     String? itemCategories;
     String? itemRate;
-    String? item_Price;
 
     factory CartModel.fromJson(Map<String, dynamic> json) => CartModel(
-        itemPrice: json["itemPrice"],
-        countItems: json["countItems"],
+        itemPrice: json["itemPrice"]??'0.0',
+        countItems: json["countItems"]??'0',
         cartId: json["cart_id"],
         cartUserId: json["cart_userId"],
         cartItemId: json["cart_itemId"],
@@ -55,7 +53,7 @@ class CartModel {
         itemNameAr: json["item_name_ar"],
         itemDescriprion: json["item_descriprion"],
         itemDescreptionAr: json["item_descreption_ar"],
-        cartModelItemPrice: json["item_price"],
+        cartModelItemPrice: json["item_price"]??'0',
         itemImage: json["item_image"],
         itemCount: json["item_count"],
         itemActive: json["item_active"],
@@ -64,7 +62,6 @@ class CartModel {
         itemQuantity: json["item_quantity"],
         itemCategories: json["item_categories"],
         itemRate: json["item_rate"],
-        item_Price: json["item_price"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -87,6 +84,5 @@ class CartModel {
         "item_quantity": itemQuantity,
         "item_categories": itemCategories,
         "item_rate": itemRate,
-        "item_price":item_Price
     };
 }

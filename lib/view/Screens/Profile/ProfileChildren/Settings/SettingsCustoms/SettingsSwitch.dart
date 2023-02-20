@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../../../../Core/Constant/Colors.dart';
-import '../../../../../Core/Constant/fonts.dart';
+import '../../../../../../Core/Constant/Colors.dart';
+import '../../../../../../Core/Constant/fonts.dart';
 
 class SettingsSwitch extends StatelessWidget {
   const SettingsSwitch({
     Key? key,
     required this.title,
     required this.onChanged,
+    required this.checkValue,
   }) : super(key: key);
+  final bool checkValue;
   final String title;
   final void Function(bool) onChanged;
   @override
@@ -19,10 +21,10 @@ class SettingsSwitch extends StatelessWidget {
           title,
           style: blackTextStyle(),
         ),
-        value: true,
+        value: checkValue,
         onChanged: onChanged,
-        activeTrackColor:AppColor. orange,
-        activeColor:AppColor. white,
+        activeTrackColor: AppColor.orange,
+        activeColor: AppColor.white,
       ),
     );
   }

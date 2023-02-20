@@ -13,8 +13,9 @@ class ProductsDetailes extends StatelessWidget {
     
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
+        body: ListView(
+          children:[
+             Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children:const  [
               //The Top Part of The Page
@@ -23,6 +24,7 @@ class ProductsDetailes extends StatelessWidget {
               BottomColumn(),
             ],
           ),
+          ]
         ),
       ),
     );

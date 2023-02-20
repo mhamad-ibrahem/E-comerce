@@ -45,7 +45,7 @@ class DescriptionText extends GetView<DetailesControllerImplement> {
                 Theme.of(context).textTheme.headline2!.copyWith(fontSize: 17),
           ),
           Text(
-            "${controller.itemsModel.itemPrice!} \$",
+            "${controller.itemsModel.itemfinalPrice!} \$",
             style: const TextStyle(
                 fontSize: 17,
                 color: AppColor.orange,
