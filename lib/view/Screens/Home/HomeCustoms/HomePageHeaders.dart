@@ -1,6 +1,4 @@
 import 'package:ecommerce/Core/Constant/routes.dart';
-import 'package:ecommerce/controller/Home/HomeController.dart';
-import 'package:ecommerce/view/Widget/CustomTextFormField.dart';
 import 'package:ecommerce/view/Widget/RedDot.dart';
 import 'package:flutter/material.dart';
 import '../../../../Core/Constant/Colors.dart';
@@ -71,7 +69,9 @@ class HomePageHeaders extends StatelessWidget {
                   backgroundColor: AppColor.lightGrey,
                   radius: 25,
                   child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(AppRoute.notifications);
+                      },
                       icon: const Icon(
                         Icons.notifications_outlined,
                         color: AppColor.deepGrey,

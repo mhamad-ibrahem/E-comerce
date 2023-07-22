@@ -1,7 +1,11 @@
 import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/Core/Middleware/Meddelware.dart';
 import 'package:ecommerce/MainPage.dart';
+import 'package:ecommerce/controller/Profile/orders/orderController.dart';
+import 'package:ecommerce/view/Screens/Profile/orders/OrdersDetailsPage.dart';
+import 'package:ecommerce/view/Screens/Profile/orders/ordersPage.dart';
 import 'package:ecommerce/view/Screens/Cart/Cart.dart';
+import 'package:ecommerce/view/Screens/Cart/CheckOut/CheckOut.dart';
 import 'package:ecommerce/view/Screens/Categories/CategoriesScreen.dart';
 import 'package:ecommerce/view/Screens/Chat/Chat.dart';
 import 'package:ecommerce/view/Screens/Detailes/Detailes.dart';
@@ -11,6 +15,9 @@ import 'package:ecommerce/view/Screens/OnBoarding/onBoardingPage.dart';
 import 'package:ecommerce/view/Screens/Profile/Profile.dart';
 import 'package:ecommerce/view/Screens/Profile/ProfileChildren/Account/accountScreen.dart';
 import 'package:ecommerce/view/Screens/Profile/ProfileChildren/HelpCenter/HelpCenterScreen.dart';
+import 'package:ecommerce/view/Screens/Profile/ProfileChildren/LocationAddress/LocationAddress.dart';
+import 'package:ecommerce/view/Screens/Profile/ProfileChildren/LocationAddress/WriteLocationScreen.dart';
+import 'package:ecommerce/view/Screens/Profile/ProfileChildren/LocationAddress/mapLocationAddreess.dart';
 import 'package:ecommerce/view/Screens/Profile/ProfileChildren/Notification/NotificationScreen.dart';
 import 'package:ecommerce/view/Screens/Profile/ProfileChildren/Settings/SettingsPage.dart';
 import 'package:ecommerce/view/Screens/auth/ForgetPassword/ForgotPassword.dart';
@@ -30,10 +37,10 @@ List<GetPage<dynamic>>? routes = [
       middlewares: [MiddleWare()],
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-//Auth
+//=====================Auth=====================
   GetPage(
       name: AppRoute.signIn,
-      page: () =>const SignIn(),
+      page: () => const SignIn(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
   GetPage(
@@ -63,7 +70,7 @@ List<GetPage<dynamic>>? routes = [
       transitionDuration: const Duration(milliseconds: 700)),
   GetPage(
       name: AppRoute.verificationPage,
-      page: () =>const VertificationScreen(),
+      page: () => const VertificationScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
   GetPage(
@@ -71,7 +78,7 @@ List<GetPage<dynamic>>? routes = [
       page: () => ResetPasswordPage(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-//main
+//=====================main=====================
   GetPage(
       name: AppRoute.mainPage,
       page: () => MainPage(),
@@ -82,57 +89,90 @@ List<GetPage<dynamic>>? routes = [
       page: () => const HomePage(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-      GetPage(
+  GetPage(
       name: AppRoute.favorite,
-      page: () =>const FavouritePage(),
+      page: () => const FavouritePage(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-      GetPage(
+  GetPage(
       name: AppRoute.chat,
-      page: () =>const ChatPage(),
+      page: () => const ChatPage(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-      GetPage(
+  GetPage(
       name: AppRoute.profile,
-      page: () =>const ProfilePage(),
+      page: () => const ProfilePage(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-      //Details
-      GetPage(
+  //Details
+  GetPage(
       name: AppRoute.details,
       page: () => ProductsDetailes(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-      //cart
-      GetPage(
+  //=====================cart=====================
+  GetPage(
       name: AppRoute.cart,
       page: () => Cart(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-      GetPage(
-      name: AppRoute.settings,
-      page: () =>const SettingsPage(),
+  GetPage(
+      name: AppRoute.checkOut,
+      page: () => CheckOutScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-      //categories
-        GetPage(
+
+  //=====================categories=====================
+  GetPage(
       name: AppRoute.categories,
       page: () => const CategoriesScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-      GetPage(
+  //==========Profile ================
+  GetPage(
+      name: AppRoute.settings,
+      page: () => const SettingsPage(),
+      transition: Transition.fade,
+      transitionDuration: const Duration(milliseconds: 700)),
+  GetPage(
       name: AppRoute.account,
       page: () => const AccountScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-      GetPage(
+  GetPage(
       name: AppRoute.helpCenter,
       page: () => const HelpCenterScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
-      GetPage(
+  GetPage(
       name: AppRoute.notifications,
-      page: () => const NotificationsScreen(),
+      page: () => NotificationsScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
+  GetPage(
+      name: AppRoute.address,
+      page: () => LocationAddress(),
+      transition: Transition.fade,
+      transitionDuration: const Duration(milliseconds: 700)),
+  GetPage(
+      name: AppRoute.addLoacation,
+      page: () => const WriteLocationScreen(),
+      transition: Transition.fade,
+      transitionDuration: const Duration(milliseconds: 700)),
+  GetPage(
+      name: AppRoute.mapLocation,
+      page: () => MapLocationAddreess(),
+      transition: Transition.fade,
+      transitionDuration: const Duration(milliseconds: 700)),
+  GetPage(
+      name: AppRoute.orders,
+      page: () => const OrdersPage(),
+      binding: BindingsBuilder.put(() => OrderController()),
+      transition: Transition.fade,
+      transitionDuration: const Duration(milliseconds: 700)),
+  GetPage(
+      name: AppRoute.orderDetails,
+      page: () => const OrdersDetailsPage(),
+      transition: Transition.fade,
+      transitionDuration: const Duration(milliseconds: 700))
 ];

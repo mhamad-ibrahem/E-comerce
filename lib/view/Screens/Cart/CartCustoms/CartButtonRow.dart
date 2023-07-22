@@ -7,7 +7,7 @@ import '../../../../Core/Constant/fonts.dart';
 import '../../../../controller/Cart/CartController.dart';
 import '../../../Widget/CustomButton.dart';
 
-class CartButtonRow extends StatelessWidget {
+class CartButtonRow extends GetView<CartController> {
   const CartButtonRow({
     Key? key,
   }) : super(key: key);
@@ -26,13 +26,15 @@ class CartButtonRow extends StatelessWidget {
                   style: smallGreyTextStyle(),
                 ),
                 TextSpan(
-                    text: '\$ ${controller.totalPrice}',
+                    text: '\$ ${controller.getTotalPrice()}',
                     style: Themes().currentTheme.textTheme.headline1),
               ],
             ),
           ),
           CustomButton(
-            onTap: () {},
+            onTap: () {
+              controller.goToCheckout();
+            },
             buttonBody: 'Check Out',
           buttonWidth: AppSize.screenWidth * 0.55
           )

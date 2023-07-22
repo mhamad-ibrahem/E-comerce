@@ -14,7 +14,7 @@ class ProfilePicture extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 65,
-          backgroundColor:AppColor. lightGrey,
+          backgroundColor: AppColor.lightGrey,
           child: Image.asset(
             AppImageAsset.profileImage,
             height: 70,
@@ -26,12 +26,12 @@ class ProfilePicture extends StatelessWidget {
             right: 0,
             child: CircleAvatar(
               radius: 25,
-              backgroundColor:AppColor. white,
+              backgroundColor: AppColor.white,
               child: IconButton(
                   onPressed: () {},
-                  icon:const Icon(
+                  icon: const Icon(
                     Icons.add_a_photo_outlined,
-                    color:AppColor. deepGrey,
+                    color: AppColor.deepGrey,
                   )),
             ))
       ],

@@ -5,7 +5,6 @@ import 'package:ecommerce/view/Screens/Profile/ProfileChildren/Account/EditingFo
 import 'package:ecommerce/view/Screens/Profile/ProfileCustoms/ProfilePicture.dart';
 import 'package:ecommerce/view/Widget/CustomAppPage.dart';
 import 'package:ecommerce/view/Widget/CustomButton.dart';
-import 'package:ecommerce/view/Widget/PageTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,49 +19,60 @@ class AccountScreen extends StatelessWidget {
       title: "Account",
       backArrowVisiablity: true,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 20,
+          SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                const Center(child: ProfilePicture()),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      "userName",
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
+                    Text(
+                      "userAccount@gmail.com",
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  " Edite Profile :",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline4!
+                      .copyWith(fontSize: 20),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const EditingFormsScreen(),
+                const SizedBox(
+                  height: 20,
+                ),
+                Center(
+                    child: CustomButton(
+                        buttonBody: "Save",
+                        onTap: () {},
+                        buttonWidth: AppSize.screenWidth * 0.75)),
+                const SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
           ),
-          const Center(child: ProfilePicture()),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                "userName",
-                style: Theme.of(context).textTheme.headline2,
-              ),
-              Text(
-                "userAccount@gmail.com",
-                style: Theme.of(context).textTheme.headline2,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Text(
-            " Edite Profile :",
-            style:
-                Theme.of(context).textTheme.headline4!.copyWith(fontSize: 20),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const EditingFormsScreen(),
-          const SizedBox(
-            height: 20,
-          ),
-          Center(
-              child: CustomButton(
-                  buttonBody: "Save",
-                  onTap: () {},
-                  buttonWidth: AppSize.screenWidth * 0.75))
         ],
       ),
     );

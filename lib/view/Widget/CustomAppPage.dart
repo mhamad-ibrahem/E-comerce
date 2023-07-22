@@ -1,6 +1,8 @@
 import 'package:ecommerce/view/Widget/PageTitle.dart';
 import 'package:flutter/material.dart';
 
+import 'custom_app_bar.dart';
+
 class CustomAppPage extends StatelessWidget {
   const CustomAppPage({
     super.key,
@@ -17,26 +19,18 @@ class CustomAppPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: customAppBar(context, title, backArrowVisiablity),
         body: Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15, top: 20),
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
             child: isScroll == true
                 ? SingleChildScrollView(
                     child: Column(
-                      children: [
-                        PageTitle(
-                            title: title,
-                            backArrowVisiablity: backArrowVisiablity),
-                        body
-                      ],
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [body],
                     ),
                   )
                 : Column(
-                    children: [
-                      PageTitle(
-                          title: title,
-                          backArrowVisiablity: backArrowVisiablity),
-                      body
-                    ],
+                    children: [body],
                   )),
       ),
     );

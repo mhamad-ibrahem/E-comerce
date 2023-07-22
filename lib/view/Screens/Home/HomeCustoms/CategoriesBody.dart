@@ -30,6 +30,16 @@ class CategoriesBody extends GetView<HomeControllerImplement> {
                   borderRadius: BorderRadius.circular(12),
                   color: AppColor.pink),
               child: CachedNetworkImage(
+                placeholder: (context, url) => const Center(
+                    child:
+                        CircularProgressIndicator(color: AppColor.deepOrange)),
+                errorWidget: (context, url, error) => Text(
+                  "Check Internet",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline2!
+                      .copyWith(color: AppColor.deepOrange),
+                ),
                 imageUrl:
                     "${AppLinks.categoriesImageLink}/${categoriesModel.categoriesImage}",
                 fit: BoxFit.contain,

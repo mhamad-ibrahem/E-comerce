@@ -18,6 +18,9 @@ class BottomSizedBox extends StatelessWidget {
         children: const [
           //Upper Row That Contains TextField
           CartTextFieldRow(),
+          SizedBox(
+            height: 5,
+          ),
           //Bottom Row That Conatins Check Out Button
           CartButtonRow(),
         ],

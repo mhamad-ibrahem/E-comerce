@@ -66,7 +66,7 @@ class ItemsModel {
     categoriesImage = json['categories_image'];
     categoriesDateTime = json['categories_dateTime'];
     isFavorite = json["favorite"];
-    itemfinalPrice= json["itemFinalPrice"]??'0';
+    itemfinalPrice= json["itemFinalPrice"]??itemPrice;
   }
 
   Map<String, dynamic> toJson() {

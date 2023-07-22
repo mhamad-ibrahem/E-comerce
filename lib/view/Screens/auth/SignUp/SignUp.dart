@@ -1,4 +1,4 @@
-import 'package:ecommerce/Core/classes/HandilingData.dart';
+
 import 'package:ecommerce/controller/Auth/SignUp/SignUpController.dart';
 import 'package:ecommerce/view/Widget/CustomButton.dart';
 import 'package:flutter/material.dart';

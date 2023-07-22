@@ -75,7 +75,7 @@ class CategoriesScreen extends GetView<CategoriesControllerImplement> {
                             );
                           }))
                   ], 
-                 ) :const ItemSearchProduct() 
+                 ) : ItemSearchProduct(listItemModel: controller.searchItem,) 
               ))
               ],
               ),

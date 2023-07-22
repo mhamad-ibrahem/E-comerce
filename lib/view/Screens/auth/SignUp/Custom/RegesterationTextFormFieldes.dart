@@ -7,10 +7,9 @@ import '../../../../Widget/CustomTextFormField.dart';
 
 class RegesterationTextFormFieldes extends StatelessWidget {
   const RegesterationTextFormFieldes({super.key});
- 
+
   @override
   Widget build(BuildContext context) {
-    
     return GetBuilder<SignUpImplement>(
       builder: (controller) => Column(
         children: [
@@ -22,7 +21,7 @@ class RegesterationTextFormFieldes extends StatelessWidget {
               textEditingController: controller.signUpEmail,
               suffixIcon: null,
               validator: (value) {
-                return validation(value!, 14, 30, 'email');
+                return validation(value!, 14, 60, 'email');
               }),
           const SizedBox(
             height: 30,
@@ -60,7 +59,7 @@ class RegesterationTextFormFieldes extends StatelessWidget {
             validator: (value) {
               print(value);
               print(controller.signUppassword.text);
-              return confirmValidate( value!,controller.signUppassword.text);
+              return confirmValidate(value!, controller.signUppassword.text);
             },
             textEditingController: controller.signUppasswordConfirm,
             suffixIcon: IconButton(

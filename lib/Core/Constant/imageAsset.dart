@@ -6,7 +6,7 @@ class AppImageAsset {
   static const String mainRoute = '${imageRout}Main/';
   static const String profileRoute = '${imageRout}Profile/';
   static const String stateRoute = '${imageRout}State/';
-
+  static const String checkOutRoute = '${imageRout}CheckOut/';
   //onBording images
   static const String imageOnBording1 = '${onBordingImageRout}splash_1.png';
   static const String imageOnBording2 = '${onBordingImageRout}splash_2.png';
@@ -28,43 +28,9 @@ class AppImageAsset {
       '${mainRoute}Image Popular Product 2.png';
   static const String popularProductimage3 =
       '${mainRoute}Image Popular Product 3.png';
-  //Details
-  //blue
-  static const String ps4consoleblueimage1 =
-      '${detailsRoute}ps4_console_blue_1.png';
-  static const String ps4consoleblueimage2 =
-      '${detailsRoute}ps4_console_blue_2.png';
-  static const String ps4consoleblueimage3 =
-      '${detailsRoute}ps4_console_blue_3.png';
-  static const String ps4consoleblueimage4 =
-      '${detailsRoute}ps4_console_blue_4.png';
-  //gold
-  static const String ps4consolegoldimage1 =
-      '${detailsRoute}ps4_console_gold_1.png';
-  static const String ps4consolegoldimage2 =
-      '${detailsRoute}ps4_console_gold_2.png';
-  static const String ps4consolegoldimage3 =
-      '${detailsRoute}ps4_console_gold_3.png';
-  static const String ps4consolegoldimage4 =
-      '${detailsRoute}ps4_console_gold_4.png';
-  //red
-  static const String ps4consoleredimage1 =
-      '${detailsRoute}ps4_console_red_1.png';
-  static const String ps4consoleredimage2 =
-      '${detailsRoute}ps4_console_red_2.png';
-  static const String ps4consoleredimage3 =
-      '${detailsRoute}ps4_console_red_3.png';
-  static const String ps4consoleredimage4 =
-      '${detailsRoute}ps4_console_red_4.png';
-  //white
-  static const String ps4consolewhiteimage1 =
-      '${detailsRoute}ps4_console_white_1.png';
-  static const String ps4consolewhiteimage2 =
-      '${detailsRoute}ps4_console_white_2.png';
-  static const String ps4consolewhiteimage3 =
-      '${detailsRoute}ps4_console_white_3.png';
-  static const String ps4consolewhiteimage4 =
-      '${detailsRoute}ps4_console_white_4.png';
+  //CheckOut
+  static const String deliveryImage = '${checkOutRoute}delivery.png';
+  static const String driveThruImage = '${checkOutRoute}driveThru.png';
   //Profile
   static const String profileImage = '${profileRoute}user.png';
   //State

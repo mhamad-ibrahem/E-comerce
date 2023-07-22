@@ -3,20 +3,18 @@ import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/Core/Theme/Themes.dart';
 import 'package:ecommerce/Core/services/Services.dart';
 import 'package:ecommerce/routes.dart';
-import 'package:ecommerce/view/testView.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+Future backgroundNotification(RemoteMessage message) async {
+  print("====================================================");
+}
 
-Future backgroundNotification(RemoteMessage message)async{
-    print("====================================================");
-   
-  }
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
-   FirebaseMessaging.onBackgroundMessage(backgroundNotification);
+  FirebaseMessaging.onBackgroundMessage(backgroundNotification);
   runApp(const Ecommerce());
 }
 
@@ -35,3 +33,7 @@ class Ecommerce extends StatelessWidget {
     );
   }
 }
+
+//AIzaSyB9pkCpUdlcM42f_w1rz7zfEu_ppJEW_fk
+//AIzaSyB9pkCpUdlcM42f_w1rz7zfEu_ppJEW_fk
+//AIzaSyB9pkCpUdlcM42f_w1rz7zfEu_ppJEW_fk

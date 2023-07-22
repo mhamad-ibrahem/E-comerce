@@ -45,15 +45,16 @@ class SignInImplement extends SignInController {
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success') {
           if (response['data']["user_approve"] == "1") {
-            authBox!
-                .put(HiveKeys.userNameKey, response['data']['user_name']);
+            authBox!.put(HiveKeys.userNameKey, response['data']['user_name']);
             authBox!.put(HiveKeys.emailKey, response['data']['user_email']);
-            authBox!
-                .put(HiveKeys.phoneKey, response['data']['user_number']);
+            authBox!.put(HiveKeys.phoneKey, response['data']['user_number']);
             authBox!
                 .put(HiveKeys.locationKey, response['data']['user_location']);
             authBox!.put(HiveKeys.idKey, response['data']['user_id']);
             stepBox!.put(HiveKeys.stepKey, "2");
+            String userId = authBox!.get(HiveKeys.idKey);
+            FirebaseMessaging.instance.subscribeToTopic('users');
+            FirebaseMessaging.instance.subscribeToTopic('users$userId');
             Get.offAllNamed(AppRoute.loginSuccess);
           } else {
             Get.toNamed(AppRoute.signUpOtp,
@@ -77,6 +78,7 @@ class SignInImplement extends SignInController {
     signinpassword.clear();
   }
 
+  @override
   goToSignUp() {
     Get.toNamed(AppRoute.signUp);
     signinEmail.clear();
@@ -95,21 +97,21 @@ class SignInImplement extends SignInController {
     update();
   }
 
-  // getTokenMessage() async {
-  //   if (await checkInternet()) {
-  //     FirebaseMessaging.instance.getToken().then((value) {
-  //       print(value);
-  //       String? token = value;
-  //     FirebaseMessaging.onMessage.listen((event) {
-  //       // Get.snackbar("${event.notification}", "");
-  //       print("${event.notification}");
-  //     });
-  //     });
-  //   }
-  // }
+  getTokenMessage() async {
+    if (await checkInternet()) {
+      FirebaseMessaging.instance.getToken().then((value) {
+        print(value);
+        String? token = value;
+        FirebaseMessaging.onMessage.listen((event) {
+          // Get.snackbar("${event.notification}", "");
+          print("${event.notification}");
+        });
+      });
+    }
+  }
 
   initialMessage() async {
-    //work when app is closed
+    // work when app is closed
     var message = await FirebaseMessaging.instance.getInitialMessage();
     if (message != null) {
       Get.toNamed(AppRoute.signUp);
@@ -117,9 +119,9 @@ class SignInImplement extends SignInController {
   }
 
   @override
-  void openBox() async{
-  authBox= await Hive.openBox(HiveBox.authBox);
-  stepBox = await Hive.openBox(HiveBox.stepBox);
+  void openBox() async {
+    authBox = await Hive.openBox(HiveBox.authBox);
+    stepBox = await Hive.openBox(HiveBox.stepBox);
   }
 
   @override
@@ -127,7 +129,7 @@ class SignInImplement extends SignInController {
     initialMessage();
     openBox();
     FirebaseMessaging.instance.getToken().then((value) {
-      //work when app is background state
+      // work when app is background state
       print(value);
       String? token = value;
       FirebaseMessaging.onMessageOpenedApp.listen((event) {
@@ -148,7 +150,6 @@ class SignInImplement extends SignInController {
 
   @override
   void onClose() {
-   
     super.onClose();
   }
 

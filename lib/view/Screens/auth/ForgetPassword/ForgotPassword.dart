@@ -7,15 +7,17 @@ import 'package:get/get.dart';
 import '../../../../Core/Constant/ScreenSize.dart';
 import '../../../../Core/functions/Validation.dart';
 import '../../../Widget/PageTitle.dart';
+import '../../../Widget/custom_app_bar.dart';
 
 class ForgotPassword extends StatelessWidget {
-   ForgotPassword({Key? key}) : super(key: key);
+  ForgotPassword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Get.lazyPut((() => ForgetPasswordImplement()));
     return SafeArea(
       child: Scaffold(
+        appBar: customAppBar(context, "Forgot Password", true),
         body: GetBuilder<ForgetPasswordImplement>(
             builder: (controller) => HandilingDataRequest(
                   statusRequest: controller.statusRequest,
@@ -24,13 +26,6 @@ class ForgotPassword extends StatelessWidget {
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            const PageTitle(
-                              title: 'Forgot Password',
-                              backArrowVisiablity: true,
-                            ),
                             const SizedBox(
                               height: 30,
                             ),
@@ -67,12 +62,11 @@ class ForgotPassword extends StatelessWidget {
                               height: AppSize.screenHight * 0.29,
                             ),
                             CustomButton(
-                              onTap: () {
-                                controller.forgotPassvalidate();
-                              },
-                              buttonBody: 'Continue',
-                              buttonWidth: AppSize.screenWidth * 0.75
-                            ),
+                                onTap: () {
+                                  controller.forgotPassvalidate();
+                                },
+                                buttonBody: 'Continue',
+                                buttonWidth: AppSize.screenWidth * 0.75),
                             const SizedBox(height: 60),
                           ],
                         ),

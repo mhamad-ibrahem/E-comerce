@@ -14,7 +14,7 @@ class ForgotPasswordRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<SignInImplement>(
       builder: (controller) =>
-          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Row(
           children: [
             Checkbox(

@@ -1,4 +1,3 @@
-
 import 'package:ecommerce/controller/Auth/SignIn/SignInController.dart';
 import 'package:ecommerce/view/Widget/CustomButton.dart';
 import 'package:ecommerce/view/Screens/auth/SignIn/Custom/FaceGoogleTwitterAuth.dart';
@@ -8,6 +7,7 @@ import '../../../../Core/Constant/ScreenSize.dart';
 import '../../../../Core/classes/HandilingData.dart';
 import '../../../../Core/functions/AlertFunction.dart';
 import '../../../Widget/PageTitle.dart';
+import '../../../Widget/custom_app_bar.dart';
 import 'Custom/DontHaveAccount.dart';
 import 'Custom/ForgotPasswordRow.dart';
 import 'Custom/SignInTextFormFields.dart';
@@ -22,6 +22,7 @@ class SignIn extends StatelessWidget {
         child: WillPopScope(
       onWillPop: closeAppDialog,
       child: Scaffold(
+        appBar: customAppBar(context, "Sign In", false),
         body: GetBuilder<SignInImplement>(
             builder: (controller) => HandilingDataRequest(
                   statusRequest: controller.statusRequest,
@@ -30,13 +31,6 @@ class SignIn extends StatelessWidget {
                     child: SingleChildScrollView(
                         child: Column(
                       children: [
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const PageTitle(
-                          title: 'Sign In',
-                          backArrowVisiablity: false,
-                        ),
                         const SizedBox(
                           height: 30,
                         ),
@@ -73,7 +67,7 @@ class SignIn extends StatelessWidget {
                             controller.signInvalidate();
                           },
                           buttonBody: 'Continue',
-                         buttonWidth: AppSize.screenWidth * 0.75,
+                          buttonWidth: AppSize.screenWidth * 0.75,
                         ),
                         const SizedBox(
                           height: 50,

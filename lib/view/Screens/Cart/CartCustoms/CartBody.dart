@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce/Core/Constant/ScreenSize.dart';
 import 'package:flutter/material.dart';
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../Core/Constant/fonts.dart';
@@ -82,8 +83,8 @@ class CartBody extends StatelessWidget {
                       style: Theme.of(context).textTheme.caption,
                     ),
                     Container(
-                      margin: const EdgeInsets.only(
-                        left: 35,
+                      margin:EdgeInsets.only(
+                        left:AppSize.screenWidth *0.05 ,
                         top: 15,
                       ),
                       alignment: Alignment.bottomRight,

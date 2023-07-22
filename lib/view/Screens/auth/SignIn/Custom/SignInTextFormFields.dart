@@ -22,7 +22,7 @@ class SignInTextFormFields extends StatelessWidget {
                     textEditingController: controller.signinEmail,
                     suffixIcon: null,
                     validator: (value) {
-                      return validation(value!, 14, 30, 'email');
+                      return validation(value!, 14, 60, 'email');
                     }),
                 const SizedBox(height: 30),
                 CustomTextFormField(

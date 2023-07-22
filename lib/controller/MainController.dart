@@ -1,4 +1,4 @@
-
+import 'package:ecommerce/controller/Favorite/FavoriteController.dart';
 import 'package:ecommerce/view/Screens/Chat/Chat.dart';
 import 'package:ecommerce/view/Screens/Favourite/Favourite.dart';
 import 'package:ecommerce/view/Screens/Home/HomePage.dart';
@@ -16,6 +16,10 @@ class HomePageController extends GetxController {
   ];
   changePage(int value) {
     currentindex = value;
+    if (value == 1) {
+      FavoriteImplement controller = Get.put(FavoriteImplement());
+      controller.getData();
+    }
     update();
   }
 }

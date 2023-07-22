@@ -1,7 +1,6 @@
 import 'package:ecommerce/Core/Constant/Colors.dart';
 import 'package:ecommerce/Core/Constant/routes.dart';
 import 'package:ecommerce/Core/classes/HiveBox.dart';
-import 'package:ecommerce/controller/Cart/CartController.dart';
 import 'package:ecommerce/data/DataSource/remote/Favorite/FavoriteData.dart';
 import 'package:ecommerce/data/model/Home/Items/ItemsModel.dart';
 import 'package:flutter/material.dart';

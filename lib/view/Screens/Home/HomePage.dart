@@ -12,7 +12,7 @@ import 'HomeCustoms/ItemSearchProduct.dart';
 import 'HomeCustoms/PopularProducts.dart';
 import 'HomeCustoms/SpecialPlusPopular.dart';
 
-class HomePage extends GetView<HomeControllerImplement>{
+class HomePage extends GetView<HomeControllerImplement> {
   const HomePage({
     Key? key,
   }) : super(key: key);
@@ -30,11 +30,14 @@ class HomePage extends GetView<HomeControllerImplement>{
 
           //Top Bar
 
-           HomePageHeaders(onChanged: (val){
-            controller.checkSearch(val);
-           },onSearch: (){
-            controller.onSearchItem();
-           },search: controller.search),
+          HomePageHeaders(
+              onChanged: (val) {
+                controller.checkSearch(val);
+              },
+              onSearch: () {
+                controller.onSearchItem();
+              },
+              search: controller.search),
 
           const SizedBox(
             height: 30,
@@ -42,6 +45,9 @@ class HomePage extends GetView<HomeControllerImplement>{
           GetBuilder<HomeControllerImplement>(
             builder: (controller) => HandilingDataView(
               statusRequest: controller.statusRequest!,
+              onPressed: () async {
+                await controller.getData();
+              },
               widget: controller.isSearch == false
                   ? Column(
                       children: [
@@ -96,7 +102,9 @@ class HomePage extends GetView<HomeControllerImplement>{
                         )
                       ],
                     )
-                  : const ItemSearchProduct(),
+                  : ItemSearchProduct(
+                      listItemModel: controller.searchItem,
+                    ),
             ),
           ),
         ]),

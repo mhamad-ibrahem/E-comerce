@@ -18,31 +18,31 @@ class FavoriteImplement extends FavoriteController {
   List<FavoriteModel> favoriteDataList = [];
   MyFavoriteData favoriteData = MyFavoriteData(Get.find());
   StatusRequest? statusRequest;
-  Services services = Get.find(); 
+  Services services = Get.find();
   @override
-  void onInit() {  
+  void onInit() {
     getData();
     super.onInit();
   }
+
   @override
   deleteFavoriteData(favoriteId) {
-     var response = favoriteData.deleteFavorite(favoriteId);
-     favoriteDataList.removeWhere((element) =>element.favoriteId == favoriteId );
-     update();
+    var response = favoriteData.deleteFavorite(favoriteId);
+    favoriteDataList.removeWhere((element) => element.favoriteId == favoriteId);
+    update();
   }
 
   @override
   getData() async {
     favoriteDataList.clear();
     statusRequest = StatusRequest.loading;
-    var response =
-        await favoriteData.viewFavorite(authBox.get(HiveKeys.idKey));
+    var response = await favoriteData.viewFavorite(authBox.get(HiveKeys.idKey));
     statusRequest = handilingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
         List responseData = response["data"];
-        favoriteDataList
-            .addAll(responseData.map((e) => FavoriteModel.fromJson(e)));
+        favoriteDataList =
+            responseData.map((e) => FavoriteModel.fromJson(e)).toList();
         print('==============================');
         print(favoriteDataList);
       } else {
