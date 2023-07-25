@@ -12,6 +12,7 @@ class AppLinks {
   //==================  Images  =================
   static const categoriesImageLink = "$imageStaticLink/categories";
   static const itemsImageLink = "$imageStaticLink/items";
+  static const profileImagesLink = "$imageStaticLink/usersImages/";
   //===========================================
   //=================   Auth    ====================
   static const signUpLink = '$authLink/signUp.php';
@@ -53,4 +54,7 @@ class AppLinks {
   static const viewAddressLink = "$addressLink/view.php";
   //==========Notifications
   static const notificationLink = '$notification/notification.php';
+  //profile
+  static const profileLink = '$serverLink/profile/view.php';
+  static const updateProfileLink = '$serverLink/profile/edit.php';
 }

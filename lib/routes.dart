@@ -136,7 +136,7 @@ List<GetPage<dynamic>>? routes = [
       transitionDuration: const Duration(milliseconds: 700)),
   GetPage(
       name: AppRoute.account,
-      page: () => const AccountScreen(),
+      page: () => AccountScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 700)),
   GetPage(

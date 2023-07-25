@@ -58,6 +58,8 @@ dependencies:
   #googleMap
   google_maps_flutter: ^2.2.3
   geolocator: ^9.0.2
+  #image picker
+  image_picker: ^1.0.1
   
   
   
