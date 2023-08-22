@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Core/Constant/Colors.dart';
 import '../../../../Core/Constant/ScreenSize.dart';
-
+import '../../../../Core/classes/notifications.dart';
 
 class PopularProductsObject extends GetView<HomeControllerImplement> {
   const PopularProductsObject({
@@ -17,7 +17,9 @@ class PopularProductsObject extends GetView<HomeControllerImplement> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap :()=> controller.goToDetails(itemsModel),
+      onTap: () {
+        controller.goToDetails(itemsModel);
+      },
       child: Container(
         height: 100,
         width: AppSize.screenWidth / 2.5,

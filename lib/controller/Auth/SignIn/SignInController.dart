@@ -10,6 +10,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
+import '../../../Core/classes/notifications.dart';
 import '../../../Core/functions/handilingData.dart';
 
 abstract class SignInController extends GetxController {
@@ -56,6 +57,11 @@ class SignInImplement extends SignInController {
             FirebaseMessaging.instance.subscribeToTopic('users');
             FirebaseMessaging.instance.subscribeToTopic('users$userId');
             Get.offAllNamed(AppRoute.loginSuccess);
+            NotificationService.showOnGoingNotification(
+                NotificationService.flutterLocalNotificationsPlugin,
+                title: 'Hello ${response['data']['user_name']}',
+                body: 'Welcome to Jo Store happy shopping 😊',
+                type: NotificationService.onGoing);
           } else {
             Get.toNamed(AppRoute.signUpOtp,
                 arguments: {"email": signinEmail.text});

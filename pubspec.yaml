@@ -50,6 +50,7 @@ dependencies:
   firebase_core: ^2.4.0
   cloud_firestore: ^4.3.0
   flutter_local_notifications: ^13.0.0
+  path_provider: ^2.1.0
   flutter_ringtone_player: ^3.2.0
   #image cache
   cached_network_image: ^3.2.3
