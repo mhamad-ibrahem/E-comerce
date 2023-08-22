@@ -60,6 +60,9 @@ dependencies:
   geolocator: ^9.0.2
   #image picker
   image_picker: ^1.0.1
+  #deep link share
+  share_plus: ^7.1.0
+  firebase_dynamic_links:
   
   
   

@@ -1,3 +1,4 @@
+import 'package:ecommerce/Core/classes/deep_link_services.dart';
 import 'package:ecommerce/controller/Favorite/FavoriteController.dart';
 import 'package:ecommerce/view/Screens/Chat/Chat.dart';
 import 'package:ecommerce/view/Screens/Favourite/Favourite.dart';
@@ -21,5 +22,11 @@ class HomePageController extends GetxController {
       controller.getData();
     }
     update();
+  }
+
+  @override
+  void onInit() {
+    DeepLinkSevice.initDynamicLink();
+    super.onInit();
   }
 }

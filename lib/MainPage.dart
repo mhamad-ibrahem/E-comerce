@@ -15,9 +15,9 @@ class MainPage extends StatelessWidget {
         builder: (controller) => BottomNavigationBar(
             currentIndex: controller.currentindex,
             onTap: (val) => controller.changePage(val),
-            selectedItemColor:AppColor. orange,
-            unselectedItemColor:AppColor. deepGrey,
-            backgroundColor:AppColor. lightGrey,
+            selectedItemColor: AppColor.orange,
+            unselectedItemColor: AppColor.deepGrey,
+            backgroundColor: AppColor.lightGrey,
             enableFeedback: false,
             items: const [
               BottomNavigationBarItem(
@@ -25,7 +25,8 @@ class MainPage extends StatelessWidget {
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.favorite_outline_outlined), label: 'Favorite'),
+                  icon: Icon(Icons.favorite_outline_outlined),
+                  label: 'Favorite'),
               BottomNavigationBarItem(
                   icon: Icon(
                     Icons.chat_outlined,
