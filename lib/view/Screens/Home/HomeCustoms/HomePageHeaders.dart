@@ -3,6 +3,7 @@ import 'package:ecommerce/view/Widget/RedDot.dart';
 import 'package:flutter/material.dart';
 import '../../../../Core/Constant/Colors.dart';
 import 'package:get/get.dart';
+import 'package:badges/badges.dart' as badges;
 
 class HomePageHeaders extends StatelessWidget {
   const HomePageHeaders({
@@ -61,25 +62,32 @@ class HomePageHeaders extends StatelessWidget {
                 )),
           ),
         ),
-        Expanded(
-            flex: 1,
-            child: Stack(
-              children: [
-                CircleAvatar(
-                  backgroundColor: AppColor.lightGrey,
-                  radius: 25,
-                  child: IconButton(
-                      onPressed: () {
-                        Get.toNamed(AppRoute.notifications);
-                      },
-                      icon: const Icon(
-                        Icons.notifications_outlined,
-                        color: AppColor.deepGrey,
-                      )),
-                ),
-                RedDot()
-              ],
-            ))
+        badges.Badge(
+          position: badges.BadgePosition.topEnd(top: -2, end: -2,),
+          showBadge: true,
+          ignorePointer: false,
+          onTap: () {},
+          badgeContent: const Text('3'),
+          badgeAnimation: const badges.BadgeAnimation.size(),
+          badgeStyle: const badges.BadgeStyle(
+            shape: badges.BadgeShape.circle,
+            badgeColor: Colors.red,
+            padding: EdgeInsets.all(5),
+            elevation: 0,
+          ),
+          child: CircleAvatar(
+            backgroundColor: AppColor.lightGrey,
+            radius: 25,
+            child: IconButton(
+                onPressed: () {
+                  Get.toNamed(AppRoute.notifications);
+                },
+                icon: const Icon(
+                  Icons.notifications_outlined,
+                  color: AppColor.deepGrey,
+                )),
+          ),
+        ),
       ],
     );
   }
